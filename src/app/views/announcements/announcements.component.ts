@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {Announcement} from '../../models/announcement';
+import {HttpClient} from '@angular/common/http';
+import {ApiService} from '../../models/services/api.service';
 
 @Component({
   selector: 'app-announcements',
@@ -7,9 +10,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AnnouncementsComponent implements OnInit {
 
-  constructor() { }
+  announcements: Announcement[];
+  studentAccount: boolean;
+  teacherAccount: boolean;
+  submission: any;
+
+  constructor(private api: ApiService) { }
 
   ngOnInit() {
+    this.studentAccount = false;
+    this.teacherAccount = false;
   }
+
+  get
 
 }

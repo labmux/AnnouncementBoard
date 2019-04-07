@@ -5,6 +5,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AnnouncementsComponent } from './views/announcements/announcements.component';
 import { SubmissionsComponent } from './views/submissions/submissions.component';
+import { HttpClientModule } from '@angular/common/http';
+import {ApiService} from './models/services/api.service';
 
 @NgModule({
   declarations: [
@@ -14,9 +16,10 @@ import { SubmissionsComponent } from './views/submissions/submissions.component'
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [ApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

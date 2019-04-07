@@ -7,12 +7,14 @@ import { AnnouncementsComponent } from './views/announcements/announcements.comp
 import { SubmissionsComponent } from './views/submissions/submissions.component';
 import { HttpClientModule } from '@angular/common/http';
 import {ApiService} from './models/services/api.service';
+import { NavbarComponent } from './views/navbar/navbar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AnnouncementsComponent,
-    SubmissionsComponent
+    SubmissionsComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,

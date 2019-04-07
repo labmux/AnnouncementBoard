@@ -8,13 +8,15 @@ import { SubmissionsComponent } from './views/submissions/submissions.component'
 import { HttpClientModule } from '@angular/common/http';
 import {ApiService} from './models/services/api.service';
 import { NavbarComponent } from './views/navbar/navbar.component';
+import { LoginPageComponent } from './views/login-page/login-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AnnouncementsComponent,
     SubmissionsComponent,
-    NavbarComponent
+    NavbarComponent,
+    LoginPageComponent
   ],
   imports: [
     BrowserModule,

@@ -21,15 +21,31 @@ export class AnnouncementsComponent implements OnInit {
     this.studentAccount = false;
     this.teacherAccount = false;
 
+    // loads up past announcements on load
+    this.getAnnouncements();
   }
 
   /**
-   * Receives Announcement objectv as observable
+   * Receives Announcement objects as observable
    */
   getAnnouncements(): void {
       this.api.getAnnouncements().subscribe( results => {
           this.announcements = results;
       });
+  }
+
+  /**
+   * Updates database with new announcement updated by the teacher only
+   */
+  editAnnouncement(): void {
+
+  }
+
+  /**
+   * Adds a new announcement to the database, teacher only
+   */
+  addAnnouncement(): void {
+
   }
 
 }

@@ -47,4 +47,18 @@ export class ApiService {
       return this.http.get(this.url + 'submission');
   }
 
+  /**
+   * Updates database with new announcement updated by the teacher only
+   */
+  editAnnouncement(): void {
+
+  }
+
+  /**
+   * Adds a new announcement to the database, teacher only
+   */
+  addAnnouncement(): void {
+
+  }
+
 }

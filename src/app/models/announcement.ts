@@ -4,4 +4,5 @@ export class Announcement {
     releaseDate: string;
     body: string;
     grade: string;
+    id: number;
 }

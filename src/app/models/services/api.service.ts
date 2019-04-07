@@ -10,6 +10,8 @@ export class ApiService {
   // TODO url of php api
   url = '';
 
+  grade: string;
+
   constructor(private http: HttpClient) { }
 
   /**
@@ -27,6 +29,22 @@ export class ApiService {
    * @returns {Observable<any>}
    */
   getUserLoggedIn(): Observable<any> {
-      return this.http.get(this.url + 'loggedIn');
+        return this.http.get(this.url + 'loggedIn');
   }
+
+  /**
+   * Updates grade on announcement object
+   */
+  setGrade(grade, id): void {
+
+  }
+
+  /**
+   * Receives file submitted by the student
+   * @returns {Observable<any>}
+   */
+  getSubmissions(): Observable<any> {
+      return this.http.get(this.url + 'submission');
+  }
+
 }

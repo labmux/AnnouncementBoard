@@ -20,8 +20,16 @@ export class AnnouncementsComponent implements OnInit {
   ngOnInit() {
     this.studentAccount = false;
     this.teacherAccount = false;
+
   }
 
-  get
+  /**
+   * Receives Announcement objectv as observable
+   */
+  getAnnouncements(): void {
+      this.api.getAnnouncements().subscribe( results => {
+          this.announcements = results;
+      });
+  }
 
 }

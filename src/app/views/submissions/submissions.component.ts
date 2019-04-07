@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {HttpClient} from '@angular/common/http';
 
 @Component({
   selector: 'app-submissions',
@@ -7,9 +8,30 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SubmissionsComponent implements OnInit {
 
-  constructor() { }
+  grade: string;
+
+  constructor(private http: HttpClient) { }
 
   ngOnInit() {
   }
+
+  /**
+   * Updates the grade attribute from the announcement object
+   * and updates the database
+   */
+  setGrade(grade, id): void {
+    this.http.setGrade(grade, id).subscribe( results => {
+
+    });
+  }
+
+  /**
+   * Gets the student submissions
+   */
+  getSubmissions(): void {
+      this.http.getSubmissions().subscribe( results => {
+
+      });
+    }
 
 }

@@ -10,8 +10,6 @@ export class ApiService {
   // TODO url of php api
   url = '';
 
-  grade: string;
-
   constructor(private http: HttpClient) { }
 
   /**

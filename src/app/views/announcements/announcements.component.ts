@@ -10,10 +10,13 @@ import {ApiService} from '../../models/services/api.service';
 })
 export class AnnouncementsComponent implements OnInit {
 
+  // TODO @Laurent here are the variables available to you through this array of objects:
+  // TODO let a of announcements = a.subject, a.dueDate, a.releaseDate, a.body, a.grade, a.id
   announcements: Announcement[];
+
+  // these two params are not final yet
   studentAccount: boolean;
   teacherAccount: boolean;
-  submission: any;
 
   constructor(private api: ApiService) { }
 

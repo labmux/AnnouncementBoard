@@ -7,17 +7,22 @@ import {HttpClient} from '@angular/common/http';
   styleUrls: ['./submissions.component.scss']
 })
 export class SubmissionsComponent implements OnInit {
+  // TODO @Laurent this will hold an array of objects of student submissions accessible
+  // TODo through these parameters: let s of submissions = s.file, s.studentName
+  submissions: any;
 
+  // holds the value of the grade
   grade: string;
 
   constructor(private http: HttpClient) { }
 
   ngOnInit() {
+      this.getSubmissions();
   }
 
   /**
    * Updates the grade attribute from the announcement object
-   * and updates the database
+   * and updates the database, teacher only
    */
   setGrade(grade, id): void {
     this.http.setGrade(grade, id).subscribe( results => {
@@ -33,5 +38,12 @@ export class SubmissionsComponent implements OnInit {
 
       });
     }
+
+  /**
+   * Submits the students assignment to the database, student only
+   */
+  setSubmission(): void {
+
+  }
 
 }

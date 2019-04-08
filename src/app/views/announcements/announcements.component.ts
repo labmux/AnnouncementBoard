@@ -10,7 +10,7 @@ import {ApiService} from '../../models/services/api.service';
 })
 export class AnnouncementsComponent implements OnInit {
 
-  // TODO @Laurent here are the variables available to you through this array of objects:
+  // TODO @Laurent here are the variables available to you through this array of objects (view announcement model for more):
   // TODO let a of announcements = a.subject, a.dueDate, a.releaseDate, a.body, a.grade, a.id
   announcements: Announcement[];
 
@@ -37,6 +37,14 @@ export class AnnouncementsComponent implements OnInit {
       });
   }
 
+  /**
+  * Create new announcement in the database
+  */
+  addAnnouncement(): void {
+
+  }
+
+  /**
   /**
    * Updates database with new announcement updated by the teacher only
    */

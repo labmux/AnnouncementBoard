@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
+import {Submission} from '../submission';
+import {Announcement} from '../announcement';
 
 @Injectable({
   providedIn: 'root'
@@ -18,7 +20,7 @@ export class ApiService {
    * subject, dueDate, releaseDate, body, grade
    * @returns {Observable<any>}
    */
-  getAnnouncements(): Observable<any> {
+  getAnnouncements(): Observable<Announcement> {
       return this.http.get(this.url);
   }
 
@@ -41,7 +43,7 @@ export class ApiService {
    * Receives file submitted by the student
    * @returns {Observable<any>}
    */
-  getSubmissions(): Observable<any> {
+  getSubmissions(): Observable<Submission> {
       return this.http.get(this.url + 'submission');
   }
 

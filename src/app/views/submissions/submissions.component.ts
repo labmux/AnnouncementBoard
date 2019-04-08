@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
+import {Submission} from '../../models/submission';
 
 @Component({
   selector: 'app-submissions',
@@ -7,9 +8,9 @@ import {HttpClient} from '@angular/common/http';
   styleUrls: ['./submissions.component.scss']
 })
 export class SubmissionsComponent implements OnInit {
-  // TODO @Laurent this will hold an array of objects of student submissions accessible
-  // TODo through these parameters: let s of submissions = s.file, s.studentName
-  submissions: any;
+  // TODO @Laurent here are the variables available to you through this array of objects (view submission model for more):
+  // TODO let s of submissions = s.file, s.studentName
+  submissions: Submission[];
 
   // holds the value of the grade
   grade: string;

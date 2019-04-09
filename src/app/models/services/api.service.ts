@@ -18,15 +18,14 @@ export class ApiService {
    * Receives the JSON Announcement object which contains
    * all the announcement card information:
    * subject, dueDate, releaseDate, body, grade
-   * @returns {Observable<any>}
+   * @returns {Observable<Announcement>}
    */
   getAnnouncements(): Observable<Announcement> {
-      return this.http.get(this.url);
+      return this.http.get<Announcement>(this.url + 'announcements');
   }
 
   /**
    * Receives logged in session information
-   * @returns {Observable<any>}
    */
   getUserLoggedIn(): Observable<any> {
         return this.http.get(this.url + 'loggedIn');
@@ -35,16 +34,18 @@ export class ApiService {
   /**
    * Updates grade on announcement object
    */
-  setGrade(grade, id): void {
-
+  setGrade(grade, id): Observable<any> {
+        return this.http.post(this.url + 'assignment', {
+            grade: grade,
+            id: id
+        });
   }
 
   /**
    * Receives file submitted by the student
-   * @returns {Observable<any>}
    */
   getSubmissions(): Observable<Submission> {
-      return this.http.get(this.url + 'submission');
+      return this.http.get<Submission>(this.url + 'submissions');
   }
 
   /**
@@ -58,6 +59,13 @@ export class ApiService {
    * Adds a new announcement to the database, teacher only
    */
   addAnnouncement(): void {
+
+  }
+
+  /**
+   * Add a submission to the database
+   */
+  addSubmission(): Observable<any> {
 
   }
 

@@ -38,13 +38,12 @@ export class AnnouncementsComponent implements OnInit {
   }
 
   /**
-  * Create new announcement in the database
-  */
+   * Create new announcement in the database, teacher only
+   */
   addAnnouncement(): void {
 
   }
 
-  /**
   /**
    * Updates database with new announcement updated by the teacher only
    */

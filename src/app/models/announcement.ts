@@ -1,3 +1,5 @@
+import {Assignment} from './assignment';
+
 export class Announcement {
     subject: string;
     dueDate: string;
@@ -5,7 +7,7 @@ export class Announcement {
     body: string;
     grade: string;
     id: number;
-
+    assignment: Assignment;
 
     constructor(args?) {
         if (args) {
@@ -15,6 +17,7 @@ export class Announcement {
             this.body = args.b;
             this.grade = args.grade;
             this.id = args.id;
+            this.assignment = args.assignment;
         }
     }
 }

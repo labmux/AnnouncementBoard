@@ -1,11 +1,14 @@
+import {Assignment} from './assignment';
+
 export class Submission {
-    file: any;
-    studentName: string;
+    studentId: number;
+    assignment: Assignment
+
 
     constructor(args?) {
         if (args) {
-            this.file = args.file;
-            this.studentName = args.studentName;
+            this.studentId = args.studentId;
+            this.assignment = args.assignment;
         }
     }
 }

@@ -18,7 +18,6 @@ export class ApiService {
    * Receives the JSON Announcement object which contains
    * all the announcement card information:
    * subject, dueDate, releaseDate, body, grade
-   * @returns {Observable<Announcement>}
    */
   getAnnouncements(): Observable<Announcement> {
       return this.http.get<Announcement>(this.url + 'announcements');

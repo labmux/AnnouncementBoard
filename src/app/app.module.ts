@@ -9,6 +9,23 @@ import { HttpClientModule } from '@angular/common/http';
 import {ApiService} from './models/services/api.service';
 import { NavbarComponent } from './views/navbar/navbar.component';
 import { LoginPageComponent } from './views/login-page/login-page.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+/*
+    Angular Material
+ */
+import {
+    MatBadgeModule,
+    MatButtonModule,
+    MatCardModule,
+    MatChipsModule,
+    MatExpansionModule,
+    MatIconModule,
+    MatInputModule,
+    MatTabsModule
+} from '@angular/material';
+
+
 
 @NgModule({
   declarations: [
@@ -21,7 +38,16 @@ import { LoginPageComponent } from './views/login-page/login-page.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatButtonModule,
+    MatInputModule,
+    MatCardModule,
+    MatExpansionModule,
+    MatBadgeModule,
+    MatChipsModule,
+    MatIconModule,
+    MatTabsModule
   ],
   providers: [ApiService],
   bootstrap: [AppComponent]

@@ -3,9 +3,9 @@ import {HttpClient} from '@angular/common/http';
 import {Submission} from '../../models/submission';
 
 @Component({
-  selector: 'app-submissions',
-  templateUrl: './submissions.component.html',
-  styleUrls: ['./submissions.component.scss']
+    selector: 'app-submissions',
+    templateUrl: './submissions.component.html',
+    styleUrls: ['./submissions.component.scss']
 })
 export class SubmissionsComponent implements OnInit {
   // TODO @Laurent here are the variables available to you through this array of objects (view submission model for more):

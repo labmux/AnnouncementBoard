@@ -14,6 +14,7 @@ export class AnnouncementsComponent implements OnInit {
   // TODO let a of announcements = a.subject, a.dueDate, a.releaseDate, a.body, a.grade, a.id
   announcements: Announcement[];
 
+  number = [1,2,3,4,5,6,7];
   // these two params are not final yet
   studentAccount: boolean;
   teacherAccount: boolean;

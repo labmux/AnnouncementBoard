@@ -1,8 +1,21 @@
-<mat-tab-group backgroundColor="primary">
-    <mat-tab label="Announcements">
-        <app-announcements></app-announcements>
-    </mat-tab>
-    <mat-tab label="Submissions">
-        <app-submissions></app-submissions>
-    </mat-tab>
-</mat-tab-group>
+<div class="container">
+    <mat-tab-group backgroundColor="primary">
+        <mat-tab>
+            <ng-template mat-tab-label>
+                <mat-icon>home</mat-icon>
+            </ng-template>
+
+            <app-announcements></app-announcements>
+        </mat-tab>
+
+        <mat-tab>
+            <ng-template mat-tab-label>
+                <i class="material-icons">
+                    speaker_notes
+                </i>
+            </ng-template>
+            <app-submissions></app-submissions>
+        </mat-tab>
+    </mat-tab-group>
+
+</div>

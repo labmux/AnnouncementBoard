@@ -32,16 +32,9 @@ export class AnnouncementsComponent implements OnInit {
    * Receives Announcement objects as observable
    */
   getAnnouncements(): void {
-      this.api.getAnnouncements().subscribe( results => {
-          this.announcements = results;
-      });
-  }
-
-  /**
-   * Create new announcement in the database, teacher only
-   */
-  addAnnouncement(): void {
-
+      // this.api.getAnnouncements().subscribe( results => {
+      //     this.announcements = results;
+      // });
   }
 
   /**

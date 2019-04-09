@@ -35,8 +35,8 @@ export class ApiService {
    */
   setGrade(grade, id): Observable<any> {
         return this.http.post(this.url + 'assignment', {
-            grade: grade,
-            id: id
+            // grade: grade,
+            // id: id
         });
   }
 
@@ -64,7 +64,7 @@ export class ApiService {
   /**
    * Add a submission to the database
    */
-  addSubmission(): Observable<any> {
+  addSubmission() {
 
   }
 

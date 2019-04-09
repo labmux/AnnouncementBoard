@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Submission} from '../../models/submission';
+import {ApiService} from '../../models/services/api.service';
 
 @Component({
     selector: 'app-submissions',
@@ -15,7 +16,7 @@ export class SubmissionsComponent implements OnInit {
   // holds the value of the grade
   grade: string;
 
-  constructor(private http: HttpClient) { }
+  constructor(private api: ApiService) { }
 
   ngOnInit() {
       this.getSubmissions();
@@ -26,7 +27,7 @@ export class SubmissionsComponent implements OnInit {
    * and updates the database, teacher only
    */
   setGrade(grade, id): void {
-    this.http.setGrade(grade, id).subscribe( results => {
+    this.api.setGrade(grade, id).subscribe( results => {
 
     });
   }
@@ -35,7 +36,7 @@ export class SubmissionsComponent implements OnInit {
    * Gets the student submissions
    */
   getSubmissions(): void {
-      this.http.getSubmissions().subscribe( results => {
+      this.api.getSubmissions().subscribe( results => {
 
       });
     }

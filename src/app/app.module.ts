@@ -24,6 +24,7 @@ import {
     MatInputModule,
     MatTabsModule
 } from '@angular/material';
+import { RegisterComponent } from './views/register/register.component';
 
 
 
@@ -33,7 +34,8 @@ import {
     AnnouncementsComponent,
     SubmissionsComponent,
     NavbarComponent,
-    LoginPageComponent
+    LoginPageComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,

@@ -5,7 +5,6 @@ import {SubmissionsComponent} from './views/submissions/submissions.component';
 import {LoginPageComponent} from './views/login-page/login-page.component';
 
 const routes: Routes = [
-    {path: '', component: AnnouncementsComponent},
     {path: 'announcements', component: AnnouncementsComponent},
     {path: 'submissions', component: SubmissionsComponent},
     {path: 'loginPage', component: LoginPageComponent}

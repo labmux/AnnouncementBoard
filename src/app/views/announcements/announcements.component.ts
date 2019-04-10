@@ -11,7 +11,9 @@ export class AnnouncementsComponent implements OnInit {
 
   // TODO @Laurent here are the variables available to you through this array of objects (view announcement model for more):
   // TODO let a of announcements = a.subject, a.dueDate, a.releaseDate, a.body, a.grade, a.id
+  // accessRights: 0 = no one, 1 = teacher, 2 = student
   // announcements: Announcement[];
+  user: number;
 
   announcements = [
       {
@@ -56,16 +58,10 @@ export class AnnouncementsComponent implements OnInit {
       },
   ];
 
-  // these two params are not final yet
-  studentAccount: boolean;
-  teacherAccount: boolean;
-
   constructor(private api: ApiService) { }
 
   ngOnInit() {
-    this.studentAccount = false;
-    this.teacherAccount = false;
-
+    this.user = 0;
     // loads up past announcements on load
     this.getAnnouncements();
   }

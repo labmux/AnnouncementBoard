@@ -11,3 +11,22 @@ form {
   width: 75%;
   margin: 10% auto auto;
 }
+
+.btn-toggle {
+  width: 75%;
+  margin: 10% auto auto;
+}
+
+.btn-space {
+  margin-left: 5%;
+}
+
+mat-button-toggle {
+  background-color: #ff4081;
+  color: white;
+
+}
+
+mat-button-toggle-group {
+  border-radius: 15px 20px;
+}

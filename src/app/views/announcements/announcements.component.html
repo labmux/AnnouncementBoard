@@ -1,20 +1,23 @@
 <!-- If teacher, display addAnnouncement and editAnnouncement buttons -->
+<div fxLayout="row">
+    <div fxLayout="column">
+        <mat-card class="example-card" *ngFor="let a of announcements">
+            <mat-card-header>
+                <div mat-card-avatar class="example-header-image"></div>
+                <mat-card-title>{{ a.teacher }}</mat-card-title>
+                <mat-card-subtitle>{{ a.subject }} - {{ a.releaseDate }}</mat-card-subtitle>
+            </mat-card-header>
 
-<mat-card class="example-card" *ngFor="let a of announcements">
-    <mat-card-header>
-        <div mat-card-avatar class="example-header-image"></div>
-        <mat-card-title>{{ a.teacher }}</mat-card-title>
-        <mat-card-subtitle>{{ a.subject }} - {{ a.releaseDate }}</mat-card-subtitle>
-    </mat-card-header>
-
-    <mat-card-content>
-        <p>{{ a.body }}</p>
-        <div  class="container">
-            <p><b>Assignment is worth: {{ a.gradeWorth }}%</b></p>
-            <p><b>Due Date: {{ a.dueDate }}</b></p>
-        </div>
-    </mat-card-content>
-    <mat-card-actions align="end">
-        <a download="filename" target="_blank" href="./announcements.component.html"><button mat-raised-button color="accent">Download</button></a>
-    </mat-card-actions>
-</mat-card>
+            <mat-card-content>
+                <p>{{ a.body }}</p>
+            </mat-card-content>
+            <mat-card-actions align="end">
+            </mat-card-actions>
+        </mat-card>
+    </div>
+    <div fxFlexOffset="-14%" style="margin-top: 410px;" ngIf="user == 'teacher">
+        <button mat-fab color="accent" id="addAnnouncement">
+            <mat-icon><i class="material-icons">add</i></mat-icon>
+        </button>
+    </div>
+</div>

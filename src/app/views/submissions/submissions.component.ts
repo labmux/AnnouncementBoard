@@ -19,7 +19,7 @@ export class SubmissionsComponent implements OnInit {
   constructor(private api: ApiService) { }
 
   ngOnInit() {
-      this.getSubmissions();
+      // this.getSubmissions();
   }
 
   /**

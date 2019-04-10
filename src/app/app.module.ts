@@ -22,7 +22,8 @@ import {
     MatExpansionModule,
     MatIconModule,
     MatInputModule, MatSidenavModule,
-    MatTabsModule
+    MatTabsModule,
+    MatDividerModule
 } from '@angular/material';
 
 
@@ -48,7 +49,8 @@ import {
     MatChipsModule,
     MatIconModule,
     MatTabsModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatDividerModule
   ],
   providers: [ApiService],
   bootstrap: [AppComponent]

@@ -1,11 +1,12 @@
 import {Assignment} from './assignment';
 
 export class Announcement {
+    teacher: string;
     subject: string;
     dueDate: string;
     releaseDate: string;
     body: string;
-    grade: string;
+    gradeWorth: string;
     id: number;
     assignment: Assignment;
 
@@ -15,7 +16,7 @@ export class Announcement {
             this.dueDate = args.dueDate;
             this.releaseDate = args.releaseDate;
             this.body = args.b;
-            this.grade = args.grade;
+            this.gradeWorth = args.gradeWorth;
             this.id = args.id;
             this.assignment = args.assignment;
         }

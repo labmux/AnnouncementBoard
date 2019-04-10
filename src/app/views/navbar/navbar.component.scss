@@ -1,8 +1,14 @@
-.container {
-
-  margin: auto;
+ mat-toolbar {
+  //margin: auto;
   //background-color: #E7E9FE;
+  position: fixed;
+  z-index: 1;
 }
+
+ .btn {
+  width: 600px;
+  margin: auto;
+ }
 
 .tab {
   min-width: 500px;

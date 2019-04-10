@@ -1,9 +1,11 @@
 import {Assignment} from './assignment';
 
 export class Submission {
+    id: number;
     studentId: number;
-    assignment: Assignment
-
+    assignment: Assignment;
+    date: string;
+    grade: number;
 
     constructor(args?) {
         if (args) {

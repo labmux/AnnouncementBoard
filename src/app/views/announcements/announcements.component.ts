@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import {Announcement} from '../../models/announcement';
-import {HttpClient} from '@angular/common/http';
 import {ApiService} from '../../models/services/api.service';
 
 @Component({
@@ -12,15 +11,13 @@ export class AnnouncementsComponent implements OnInit {
 
   // TODO @Laurent here are the variables available to you through this array of objects (view announcement model for more):
   // TODO let a of announcements = a.subject, a.dueDate, a.releaseDate, a.body, a.grade, a.id
-  announcements: Announcement[];
+  // announcements: Announcement[];
 
   announcements = [
       {
           teacher: 'Ahad Deghani',
           subject: 'Mathematics',
-          gradeWorth: 45,
           releaseDate: 'Tuesday April 1st, 2018',
-          dueDate: 'Wednesday, May 22 2018',
           body: 'The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.' +
           '            A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally' +
           '            bred for hunting.'
@@ -28,9 +25,7 @@ export class AnnouncementsComponent implements OnInit {
       {
           teacher: 'Ahad Deghani',
           subject: 'Mathematics',
-          gradeWorth: 45,
           releaseDate: 'Tuesday April 1st, 2018',
-          dueDate: 'Wednesday, May 22 2018',
           body: 'The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.' +
           '            A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally' +
           '            bred for hunting.'
@@ -38,9 +33,7 @@ export class AnnouncementsComponent implements OnInit {
       {
           teacher: 'Ahad Deghani',
           subject: 'Mathematics',
-          gradeWorth: 45,
           releaseDate: 'Tuesday April 1st, 2018',
-          dueDate: 'Wednesday, May 22 2018',
           body: 'The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.' +
           '            A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally' +
           '            bred for hunting.'
@@ -48,9 +41,7 @@ export class AnnouncementsComponent implements OnInit {
       {
           teacher: 'Ahad Deghani',
           subject: 'Mathematics',
-          gradeWorth: 45,
           releaseDate: 'Tuesday April 1st, 2018',
-          dueDate: 'Wednesday, May 22 2018',
           body: 'The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.' +
           '            A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally' +
           '            bred for hunting.'
@@ -58,29 +49,7 @@ export class AnnouncementsComponent implements OnInit {
       {
           teacher: 'Ahad Deghani',
           subject: 'Mathematics',
-          gradeWorth: 45,
           releaseDate: 'Tuesday April 1st, 2018',
-          dueDate: 'Wednesday, May 22 2018',
-          body: 'The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.' +
-          '            A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally' +
-          '            bred for hunting.'
-      },
-      {
-          teacher: 'Ahad Deghani',
-          subject: 'Mathematics',
-          gradeWorth: 45,
-          releaseDate: 'Tuesday April 1st, 2018',
-          dueDate: 'Wednesday, May 22 2018',
-          body: 'The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.' +
-          '            A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally' +
-          '            bred for hunting.'
-      },
-      {
-          teacher: 'Ahad Deghani',
-          subject: 'Mathematics',
-          gradeWorth: 45,
-          releaseDate: 'Tuesday April 1st, 2018',
-          dueDate: 'Wednesday, May 22 2018',
           body: 'The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.' +
           '            A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally' +
           '            bred for hunting.'

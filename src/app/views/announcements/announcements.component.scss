@@ -1,11 +1,9 @@
 .example-card {
-  max-width: 60%;
+  max-width: 55%;
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 18px;
 }
-
-
 
 .example-header-image {
   background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
@@ -19,9 +17,17 @@
   //height: 100%;
 }
 
+#addAnnouncement {
+  //float: right;
+  margin-right: 50px;
+  position: fixed;
+  z-index: 2;
+}
+
 mat-card:hover {
   background-color: #F7F7FB;
 }
+
 mat-card-header {
   margin-bottom: 25px;
 }

@@ -23,8 +23,11 @@ import {
     MatIconModule,
     MatInputModule, MatSidenavModule,
     MatTabsModule,
-    MatDividerModule
+    MatDividerModule,
+    MatTableModule,
+    MatToolbarModule
 } from '@angular/material';
+import {FlexLayoutModule} from '@angular/flex-layout';
 
 
 
@@ -50,7 +53,10 @@ import {
     MatIconModule,
     MatTabsModule,
     MatSidenavModule,
-    MatDividerModule
+    MatDividerModule,
+    MatTableModule,
+    MatToolbarModule,
+    FlexLayoutModule
   ],
   providers: [ApiService],
   bootstrap: [AppComponent]

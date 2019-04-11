@@ -13,7 +13,7 @@ import {Assignment} from '../../models/assignment';
 export class SubmissionsComponent implements OnInit {
   // TODO @Laurent here are the variables available to you through this array of objects (view submission model for more):
   // TODO let s of submissions = s.file, s.studentName
-  submissions: Submission[];
+  // assignments: Assignment[];
 
   // holds the value of the grade
   grade: string;
@@ -21,6 +21,7 @@ export class SubmissionsComponent implements OnInit {
   constructor(private api: ApiService) { }
 
     // assignments: Assignment[];
+    user: number;
     displayedColumns = ['Assignment', 'Submission deadline', 'weight'];
     assignments = [
         {
@@ -28,53 +29,59 @@ export class SubmissionsComponent implements OnInit {
             subject: 'Mathematics',
             releaseDate: 'Tuesday April 1st, 2018',
             dueDate: 'Wednesday, May 22 2018',
-            submissionStatus: 'not submitted'
+            submissionStatus: 'not submitted',
+            body: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard ' +
+            'dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. ' +
+            'It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. ' +
+            'It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop ' +
+            'publishing software like Aldus PageMaker including versions of Lorem Ipsum.',
+            gradeWorth: 32
         },
         {
             teacher: 'Ahad Deghani',
             subject: 'Mathematics',
-            gradeWorth: 45,
             releaseDate: 'Tuesday April 1st, 2018',
             dueDate: 'Wednesday, May 22 2018',
+            submissionStatus: 'not submitted',
+            body: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard ' +
+            'dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. ' +
+            'It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. ' +
+            'It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop ' +
+            'publishing software like Aldus PageMaker including versions of Lorem Ipsum.',
+            gradeWorth: 32
         },
         {
             teacher: 'Ahad Deghani',
             subject: 'Mathematics',
-            gradeWorth: 45,
             releaseDate: 'Tuesday April 1st, 2018',
             dueDate: 'Wednesday, May 22 2018',
+            submissionStatus: 'not submitted',
+            body: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard ' +
+            'dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. ' +
+            'It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. ' +
+            'It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop ' +
+            'publishing software like Aldus PageMaker including versions of Lorem Ipsum.',
+            gradeWorth: 32
         },
         {
             teacher: 'Ahad Deghani',
             subject: 'Mathematics',
-            gradeWorth: 45,
             releaseDate: 'Tuesday April 1st, 2018',
             dueDate: 'Wednesday, May 22 2018',
-        },
-        {
-            teacher: 'Ahad Deghani',
-            subject: 'Mathematics',
-            gradeWorth: 45,
-            releaseDate: 'Tuesday April 1st, 2018',
-            dueDate: 'Wednesday, May 22 2018',
-        },
-        {
-            teacher: 'Ahad Deghani',
-            subject: 'Mathematics',
-            gradeWorth: 45,
-            releaseDate: 'Tuesday April 1st, 2018',
-            dueDate: 'Wednesday, May 22 2018',
-        },
-        {
-            teacher: 'Ahad Deghani',
-            subject: 'Mathematics',
-            gradeWorth: 45,
-            releaseDate: 'Tuesday April 1st, 2018',
-            dueDate: 'Wednesday, May 22 2018',
-        },
+            submissionStatus: 'not submitted',
+            body: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard ' +
+            'dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. ' +
+            'It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. ' +
+            'It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop ' +
+            'publishing software like Aldus PageMaker including versions of Lorem Ipsum.',
+            gradeWorth: 32
+        }
     ];
   ngOnInit() {
       // this.getSubmissions();
+      // get user permission
+
+      this.user = 1;
   }
 
   /**

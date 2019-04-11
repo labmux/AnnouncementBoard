@@ -61,7 +61,7 @@ export class AnnouncementsComponent implements OnInit {
   constructor(private api: ApiService) { }
 
   ngOnInit() {
-    this.user = 0;
+    this.user = 1;
     // loads up past announcements on load
     this.getAnnouncements();
   }

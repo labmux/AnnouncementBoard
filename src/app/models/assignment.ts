@@ -8,6 +8,8 @@ export class Assignment {
     dueDate: string;
     submissionStatus: string;
     submissionDate: string;
+    body: string;
+    grade: number;
 
     constructor(args?) {
         if (args) {

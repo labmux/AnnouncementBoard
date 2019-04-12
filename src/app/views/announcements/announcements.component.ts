@@ -78,15 +78,15 @@ export class AnnouncementsComponent implements OnInit {
   /**
    * Updates database with new announcement updated by the teacher only
    */
-  editAnnouncement(): void {
-
+  editAnnouncement(edit: string): void {
+    this.api.editAnnouncement(edit);
   }
 
   /**
    * Adds a new announcement to the database, teacher only
    */
-  addAnnouncement(): void {
-
+  addAnnouncement(newAnnouncement: string): void {
+    this.api.addAnnouncement(newAnnouncement);
   }
 
 }

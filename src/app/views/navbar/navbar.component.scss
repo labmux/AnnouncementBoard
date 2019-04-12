@@ -15,3 +15,20 @@
   margin: auto;
 }
 
+ .example-container {
+   position: absolute;
+   top: 0;
+   bottom: 0;
+   left: 0;
+   right: 0;
+ }
+
+ mat-sidenav {
+   width: 400px;
+ }
+ .example-events {
+   width: 300px;
+   height: 200px;
+   overflow: auto;
+   border: 1px solid #555;
+ }

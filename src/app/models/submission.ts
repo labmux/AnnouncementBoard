@@ -1,16 +1,21 @@
 import {Assignment} from './assignment';
 
 export class Submission {
-    id: number;
-    studentId: number;
-    assignment: Assignment;
+    // Database params
+    sid: number;    // submission id
+    stid: number;   // student id
+    asgid: number;  // assignment id
+    submission: string;
     date: string;
     grade: number;
 
+    // firstName: string;
+    // lastName: string;
+    // name: string;
+    // assignment: Assignment;
+
     constructor(args?) {
         if (args) {
-            this.studentId = args.studentId;
-            this.assignment = args.assignment;
         }
     }
 }

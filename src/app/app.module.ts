@@ -21,13 +21,15 @@ import {
     MatChipsModule,
     MatExpansionModule,
     MatIconModule,
-    MatInputModule, MatSidenavModule,
+    MatInputModule,
+    MatSidenavModule,
     MatTabsModule,
     MatDividerModule,
     MatTableModule,
     MatToolbarModule
 } from '@angular/material';
 import {FlexLayoutModule} from '@angular/flex-layout';
+import { AssignmentsComponent } from './views/assignments/assignments.component';
 
 
 
@@ -37,7 +39,8 @@ import {FlexLayoutModule} from '@angular/flex-layout';
     AnnouncementsComponent,
     SubmissionsComponent,
     NavbarComponent,
-    LoginPageComponent
+    LoginPageComponent,
+    AssignmentsComponent
   ],
   imports: [
     BrowserModule,

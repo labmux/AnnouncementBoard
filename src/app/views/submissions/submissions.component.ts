@@ -16,67 +16,70 @@ export class SubmissionsComponent implements OnInit {
   // assignments: Assignment[];
 
   // holds the value of the grade
-  grade: string;
+  displayedColumns = ['name', 'date', 'teacher', 'subject', 'dueDate', 'grade', 'file', 'setGrade'];
+  submissions = [
+      {
+        name: 'Jonathan Joaquim',
+        date: 'Tuesday April 1st, 2018',
+        grade: 22,
+        assignment: {
+            teacher: 'Ahad Deghani',
+            subject: 'Mathematics',
+            dueDate: 'Tuesday April 1st, 2018',
+            file: ''
+        }
+      },
+      {
+          name: 'Jonathan Joaquim',
+          date: 'Tuesday April 1st, 2018',
+          grade: null,
+          assignment: {
+              teacher: 'Ahad Deghani',
+              subject: 'Mathematics',
+              dueDate: 'Tuesday April 1st, 2018',
+              file: ''
+          }
+      },
+      {
+          name: 'Jonathan Joaquim',
+          date: 'Tuesday April 1st, 2018',
+          grade: null,
+          assignment: {
+              teacher: 'Ahad Deghani',
+              subject: 'Mathematics',
+              dueDate: 'Tuesday April 1st, 2018',
+              file: ''
+          }
+      },
+      {
+          name: 'Jonathan Joaquim',
+          date: 'Tuesday April 1st, 2018',
+          grade: null,
+          assignment: {
+              teacher: 'Ahad Deghani',
+              subject: 'Mathematics',
+              dueDate: 'Tuesday April 1st, 2018',
+              file: ''
+          }
+      },
+      {
+          name: 'Jonathan Joaquim',
+          date: 'Tuesday April 1st, 2018',
+          grade: null,
+          assignment: {
+              teacher: 'Ahad Deghani',
+              subject: 'Mathematics',
+              dueDate: 'Tuesday April 1st, 2018',
+              file: ''
+          }
+      }
+   ];
 
   constructor(private api: ApiService) { }
 
     // assignments: Assignment[];
     user: number;
-    displayedColumns = ['Assignment', 'Submission deadline', 'weight'];
-    assignments = [
-        {
-            teacher: 'Ahad Deghani',
-            subject: 'Mathematics',
-            releaseDate: 'Tuesday April 1st, 2018',
-            dueDate: 'Wednesday, May 22 2018',
-            submissionStatus: 'not submitted',
-            body: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard ' +
-            'dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. ' +
-            'It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. ' +
-            'It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop ' +
-            'publishing software like Aldus PageMaker including versions of Lorem Ipsum.',
-            gradeWorth: 32
-        },
-        {
-            teacher: 'Ahad Deghani',
-            subject: 'Mathematics',
-            releaseDate: 'Tuesday April 1st, 2018',
-            dueDate: 'Wednesday, May 22 2018',
-            submissionStatus: 'not submitted',
-            body: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard ' +
-            'dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. ' +
-            'It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. ' +
-            'It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop ' +
-            'publishing software like Aldus PageMaker including versions of Lorem Ipsum.',
-            gradeWorth: 32
-        },
-        {
-            teacher: 'Ahad Deghani',
-            subject: 'Mathematics',
-            releaseDate: 'Tuesday April 1st, 2018',
-            dueDate: 'Wednesday, May 22 2018',
-            submissionStatus: 'not submitted',
-            body: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard ' +
-            'dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. ' +
-            'It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. ' +
-            'It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop ' +
-            'publishing software like Aldus PageMaker including versions of Lorem Ipsum.',
-            gradeWorth: 32
-        },
-        {
-            teacher: 'Ahad Deghani',
-            subject: 'Mathematics',
-            releaseDate: 'Tuesday April 1st, 2018',
-            dueDate: 'Wednesday, May 22 2018',
-            submissionStatus: 'not submitted',
-            body: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard ' +
-            'dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. ' +
-            'It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. ' +
-            'It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop ' +
-            'publishing software like Aldus PageMaker including versions of Lorem Ipsum.',
-            gradeWorth: 32
-        }
-    ];
+
   ngOnInit() {
       // this.getSubmissions();
       // get user permission
@@ -99,7 +102,7 @@ export class SubmissionsComponent implements OnInit {
    */
   getSubmissions(): void {
       this.api.getSubmissions().subscribe( results => {
-
+          // this.submissionss = results;
       });
     }
 

@@ -1,41 +1,52 @@
-<!-- If teacher, display setGrade button -->
-<!-- If student, display setSubmission button -->
-<div *ngIf="user == 1 || user == 2" fxLayout="row">
-    <div class="container">
-        <mat-accordion>
-            <mat-expansion-panel *ngFor="let a of assignments">
-                <mat-expansion-panel-header>
-                    <mat-panel-title class="header-spacer">
-                        {{ a.teacher }}
-                    </mat-panel-title>
-                    <mat-panel-description class="header-spacer">
-                        {{ a.subject}}
-                    </mat-panel-description>
-                    <mat-panel-description class="header-spacer">
-                        Status: {{ a.submissionStatus}}
-                    </mat-panel-description>
-                </mat-expansion-panel-header>
+<h1>Submissions</h1>
 
-                <ng-container>
-                    <p>{{ a.body }}</p>
-                    <p><b>Grade Worth: {{ a.gradeWorth }}</b></p>
-                    <p><b>Due Date: {{ a.dueDate }}</b></p>
-                </ng-container>
+<table mat-table [dataSource]="submissions" class="mat-elevation-z8">
+    <!-- Position Column -->
+    <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef> Student Name </th>
+        <td mat-cell *matCellDef="let sub"> {{ sub.name }} </td>
+    </ng-container>
 
+    <!-- Name Column -->
+    <ng-container matColumnDef="date">
+        <th mat-header-cell *matHeaderCellDef> Date </th>
+        <td mat-cell *matCellDef="let sub"> {{ sub.date}} </td>
+    </ng-container>
 
-                <mat-action-row>
-                    <button mat-raised-button color="warning">Download</button>
-                    <button *ngIf="user == 1" mat-raised-button color="accent">Grade</button>
-                </mat-action-row>
-            </mat-expansion-panel>
-        </mat-accordion>
-    </div>
-    <div *ngIf="user == 1" style="margin-top: 460px;">
-        <button mat-fab color="accent" id="addAssignment" (click)="addAssignment()">
-            <mat-icon><i class="material-icons">add</i></mat-icon>
-        </button>
-    </div>
-</div>
-<div *ngIf="user == 0" style="margin: auto">
-    <h2>Please Sign In to view this page</h2>
-</div>
+    <!-- Weight Column -->
+    <ng-container matColumnDef="teacher">
+        <th mat-header-cell *matHeaderCellDef> Teacher </th>
+        <td mat-cell *matCellDef="let sub"> {{ sub.assignment.teacher }} </td>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="subject">
+        <th mat-header-cell *matHeaderCellDef> Subject </th>
+        <td mat-cell *matCellDef="let sub"> {{ sub.assignment.subject }} </td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="dueDate">
+        <th mat-header-cell *matHeaderCellDef> Due Date </th>
+        <td mat-cell *matCellDef="let sub"> {{ sub.assignment.dueDate }} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="grade">
+        <th mat-header-cell *matHeaderCellDef> Grade </th>
+        <td mat-cell *matCellDef="let sub"> {{ sub.grade }} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="file">
+        <th mat-header-cell *matHeaderCellDef> Assignment </th>
+        <td mat-cell *matCellDef="let sub"><a download="filename" target="_blank" href="{{ sub.assignment.file }}"><button mat-raised-button color="warn">Download</button></a></td>
+    </ng-container>
+    <ng-container matColumnDef="setGrade">
+        <div *ngIf="user == 1">
+            <th mat-header-cell *matHeaderCellDef></th>
+            <td mat-cell *matCellDef="let sub"><a download="filename" target="_blank" href="./announcements.component.html"><button mat-raised-button color="accent">Grade</button></a></td>
+        </div>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>

@@ -1,4 +1,5 @@
 export class Assignment {
+
     id:number;
     teacher: string;
     subject: string;
@@ -7,7 +8,6 @@ export class Assignment {
     releaseDate: string;
     dueDate: string;
     submissionStatus: string;
-    submissionDate: string;
     body: string;
     grade: number;
 
@@ -16,7 +16,6 @@ export class Assignment {
             this.subject = args.subject;
             this.id = args.id;
             this.submissionStatus = args.submissionStatus;
-            this.submissionDate = args.submissionStatus;
             this.file = args.file;
             this.gradeWeight = args.gradeWeight;
             this.dueDate = args.dueDate;

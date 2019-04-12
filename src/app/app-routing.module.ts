@@ -3,11 +3,13 @@ import { Routes, RouterModule } from '@angular/router';
 import {AnnouncementsComponent} from './views/announcements/announcements.component';
 import {SubmissionsComponent} from './views/submissions/submissions.component';
 import {LoginPageComponent} from './views/login-page/login-page.component';
+import {AssignmentsComponent} from './views/assignments/assignments.component';
 
 const routes: Routes = [
     {path: '', component: AnnouncementsComponent},
     {path: 'announcements', component: AnnouncementsComponent},
     {path: 'submissions', component: SubmissionsComponent},
+    {path: 'assignments', component: AssignmentsComponent},
     {path: 'loginPage', component: LoginPageComponent}
 ];
 

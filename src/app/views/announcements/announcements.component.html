@@ -1,26 +1,28 @@
 <!-- If teacher, display addAnnouncement and editAnnouncement buttons -->
 <div fxLayout="row">
-    <div fxLayout="column" fxLayoutAlign="center center">
-        <mat-card class="example-card container" *ngFor="let a of announcements">
-            <mat-card-header>
-                <div *ngIf="user == 1" fxFlex="row" fxLayoutAlign="end">
-                    <button mat-button id="edit"><mat-icon>edit</mat-icon></button>
-                </div>
-                <div mat-card-avatar class="example-header-image"></div>
-                <mat-card-title>{{ a.teacher }}</mat-card-title>
-                <mat-card-subtitle>{{ a.subject }} - {{ a.releaseDate }}</mat-card-subtitle>
-            </mat-card-header>
+  <div fxLayout="column" fxLayoutAlign="center center">
+    <mat-card class="example-card container" *ngFor="let a of announcements">
+      <mat-card-header>
+        <div *ngIf="user == 1" fxFlex="row" fxLayoutAlign="end">
+          <button mat-button id="edit">
+            <mat-icon>edit</mat-icon>
+          </button>
+        </div>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title>{{ a.teacher }}</mat-card-title>
+        <mat-card-subtitle>{{ a.subject }} - {{ a.releaseDate }}</mat-card-subtitle>
+      </mat-card-header>
 
-            <mat-card-content>
-                <p>{{ a.body }}</p>
-            </mat-card-content>
-            <mat-card-actions align="end">
-            </mat-card-actions>
-        </mat-card>
-    </div>
-    <div *ngIf="user == 1" fxFlexOffset="-14%" style="margin-top: 460px;">
-        <button mat-fab color="accent" id="addAnnouncement" (click)="addAnnouncement()">
-            <mat-icon><i class="material-icons">add</i></mat-icon>
-        </button>
-    </div>
+      <mat-card-content>
+        <p>{{ a.body }}</p>
+      </mat-card-content>
+      <mat-card-actions align="end">
+      </mat-card-actions>
+    </mat-card>
+  </div>
+  <div *ngIf="user == 1" fxFlexOffset="-14%" style="margin-top: 460px;">
+    <button mat-fab color="accent" id="addAnnouncement" (click)="addAnnouncement()">
+      <mat-icon><i class="material-icons">add</i></mat-icon>
+    </button>
+  </div>
 </div>

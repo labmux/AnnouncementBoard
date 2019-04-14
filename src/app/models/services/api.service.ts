@@ -50,7 +50,7 @@ export class ApiService {
   /**
    * Updates database with new announcement updated by the teacher only
    */
-  editAnnouncement(announcement:string): void {
+  editAnnouncement(announcement: string): void {
 
   }
 
@@ -64,7 +64,7 @@ export class ApiService {
   /**
    * Add a submission to the database
    */
-  addAssignment(): void{
+  addAssignment(): void {
 
   }
 

@@ -1,16 +1,18 @@
-<mat-drawer-container class="example-container" autosize>
-    <mat-drawer #drawer class="example-sidenav" mode="side">
-        <p>Auto-resizing sidenav</p>
-        <p *ngIf="showFiller">Lorem, ipsum dolor sit amet consectetur.</p>
-        <button (click)="showFiller = !showFiller" mat-raised-button>
-            Toggle extra text
-        </button>
-    </mat-drawer>
 
-    <div class="example-sidenav-content">
-        <button type="button" mat-button (click)="drawer.toggle()">
-            Toggle sidenav
-        </button>
-    </div>
 
-</mat-drawer-container>
+<form class="example-form">
+  <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
+  <mat-button-toggle value="Student"><h2>Student</h2></mat-button-toggle>
+  <mat-button-toggle value="teacher"><h2>Teacher</h2></mat-button-toggle>
+</mat-button-toggle-group>
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="username" required>
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+  <input matInput type="password" placeholder="password" required>
+  </mat-form-field>
+  <button mat-flat-button color="primary">Log In</button>
+  <button mat-flat-button color="primary" class="btn-space">Register Now</button>
+</form>
+
+

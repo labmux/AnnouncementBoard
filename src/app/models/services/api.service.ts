@@ -10,7 +10,7 @@ import {Announcement} from '../announcement';
 export class ApiService {
 
   // TODO url of php api
-  url = '';
+  url = 'http://localhost/projects/AnnouncementBoard/api';
 
   constructor(private http: HttpClient) { }
 
@@ -20,7 +20,7 @@ export class ApiService {
    * subject, dueDate, releaseDate, body, grade
    */
   getAnnouncements(): Observable<Announcement> {
-      return this.http.get<Announcement>(this.url + 'announcements');
+      return this.http.get<Announcement>(this.url);
   }
 
   /**
@@ -70,8 +70,3 @@ export class ApiService {
 
 }
 
-/*
-guards should
-
-
- */

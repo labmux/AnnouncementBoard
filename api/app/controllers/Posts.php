@@ -27,7 +27,10 @@ class Posts extends Controller{
             $data = [
                 'posts' => $posts
             ];
-            $this->view('posts/index', $data);
+
+
+           // echo json_encode(['data'=>$data]);
+            // $this->view('posts/index', $data);
         }
 
 
@@ -37,7 +40,7 @@ class Posts extends Controller{
             $data2 = [
                 'posts' => $posts
             ];
-
+            //echo json_encode(['data'=>$data2]);
         }
 
     }

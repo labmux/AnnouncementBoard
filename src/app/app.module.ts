@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import {AnnouncementsComponent} from './views/announcements/announcements.component';
 import { SubmissionsComponent } from './views/submissions/submissions.component';
 import { HttpClientModule } from '@angular/common/http';
 import {ApiService} from './models/services/api.service';
@@ -22,14 +23,18 @@ import {
     MatExpansionModule,
     MatIconModule,
     MatInputModule,
+  MatSidenavModule,
     MatTabsModule,
+  MatDividerModule,
+  MatTableModule,
+  MatToolbarModule,
     MatButtonToggleModule
 
 
 } from '@angular/material';
-import { RegisterComponent} from './views/register/register.component';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import { AssignmentsComponent } from './views/assignments/assignments.component';
+import {RegisterComponent} from './views/register/register.component';
 import { AddAnnoucementsComponent } from './views/add-annoucements/add-annoucements.component';
 import { AddAnnouncementsContentComponent } from './views/add-announcements-content/add-announcements-content.component';
 import { SetGradeComponent } from './views/set-grade/set-grade.component';
@@ -42,8 +47,11 @@ import { StudentSubmitionsDialogComponent } from './views/student-submitions-dia
 @NgModule({
   declarations: [
     AppComponent,
+    AnnouncementsComponent,
     SubmissionsComponent,
     NavbarComponent,
+    LoginPageComponent,
+    AssignmentsComponent,
     LoginPageComponent,
     RegisterComponent,
     AssignmentsComponent,
@@ -66,6 +74,12 @@ import { StudentSubmitionsDialogComponent } from './views/student-submitions-dia
     MatBadgeModule,
     MatChipsModule,
     MatIconModule,
+    MatTabsModule,
+    MatSidenavModule,
+    MatDividerModule,
+    MatTableModule,
+    MatToolbarModule,
+    FlexLayoutModule,
     MatTabsModule,
     MatButtonToggleModule,
     FlexLayoutModule,

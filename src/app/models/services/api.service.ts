@@ -50,22 +50,28 @@ export class ApiService {
   /**
    * Updates database with new announcement updated by the teacher only
    */
-  editAnnouncement(): void {
+  editAnnouncement(announcement: string): void {
 
   }
 
   /**
    * Adds a new announcement to the database, teacher only
    */
-  addAnnouncement(): void {
+  addAnnouncement(announcement: string): void {
 
   }
 
   /**
    * Add a submission to the database
    */
-  addSubmission() {
+  addAssignment(): void {
 
   }
 
 }
+
+/*
+guards should
+
+
+ */

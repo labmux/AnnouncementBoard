@@ -1,0 +1,39 @@
+.example-card {
+  margin-bottom: 18px;
+}
+
+.example-header-image {
+  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+  background-size: cover;
+}
+
+.container {
+  max-width: 55%;
+}
+
+#addAnnouncement {
+  //float: right;
+  margin-right: 50px;
+  position: fixed;
+  z-index: 1;
+}
+
+mat-card:hover {
+  background-color: #F7F7FB;
+}
+
+mat-card-header {
+  margin-bottom: 25px;
+}
+
+mat-card-actions {
+  //margin-top: 60px;
+}
+
+a {
+  color: black;
+}
+
+#edit {
+  height: 60%;
+}

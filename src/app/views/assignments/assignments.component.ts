@@ -1,6 +1,5 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import {MAT_DIALOG_DATA} from '@angular/material';
-import {DialogData} from '../submissions/submissions.component';
+import {MAT_DIALOG_DATA, MatDialog, MatDialogRef} from '@angular/material';
 import {ApiService} from '../../models/services/api.service';
 
 @Component({
@@ -11,7 +10,7 @@ import {ApiService} from '../../models/services/api.service';
 export class AssignmentsComponent implements OnInit {
 
   // @Inject(MAT_DIALOG_DATA) public data: DialogData,
-  constructor(private api: ApiService) {
+  constructor(private api: ApiService, private dialog: MatDialog) {
   }
 
 
@@ -79,5 +78,30 @@ export class AssignmentsComponent implements OnInit {
   addAssignment(): void {
     this.api.addAssignment();
   }
+
+  openAddAssignment() {
+      const dialogRef = this.dialog.open(StudentSubmitionsDialogComponent, {
+          width: '550px',
+      });
+
+      dialogRef.afterClosed().subscribe(result => {
+          console.log('The dialog was closed');
+      });
+  }
+
+}
+
+
+@Component({
+    selector: 'app-student-submitions-dialog',
+    templateUrl: './student-upload-dialog.component.html'
+})
+export class StudentSubmitionsDialogComponent {
+
+    constructor(private dialogRef: MatDialogRef<AssignmentsComponent>, @Inject(MAT_DIALOG_DATA) public data: any) { }
+
+    onNoClick(): void {
+        this.dialogRef.close();
+    }
 
 }

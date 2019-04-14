@@ -45,9 +45,7 @@
   <ng-container matColumnDef="setGrade">
     <div *ngIf="user == 1">
       <th mat-header-cell *matHeaderCellDef></th>
-      <td mat-cell *matCellDef="let sub"><a download="filename" target="_blank" href="./announcements.component.html">
-        <button mat-raised-button color="accent">Grade</button>
-      </a></td>
+      <td mat-cell *matCellDef="let sub"><button mat-raised-button color="accent" (click)="openSetGrade()">Grade</button></td>
     </div>
   </ng-container>
 

@@ -1,15 +1,12 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Inject, OnInit} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Submission} from '../../models/submission';
 import {ApiService} from '../../models/services/api.service';
 
-import {MatDialog} from '@angular/material';
+import {MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material';
 import {AssignmentsComponent} from '../assignments/assignments.component';
 
-export interface DialogData {
-  animal: string;
-  name: string;
-}
+
 @Component({
   selector: 'app-submissions',
   templateUrl: './submissions.component.html',
@@ -93,6 +90,15 @@ export class SubmissionsComponent implements OnInit {
     this.user = 1;
   }
 
+  openSetGrade() {
+      const dialogRef = this.dialog.open(SetGradeDialogComponent, {
+          width: '550px',
+      });
+
+      dialogRef.afterClosed().subscribe(result => {
+          console.log('The dialog was closed');
+      });
+  }
   /**
    * Updates the grade attribute from the announcement object
    * and updates the database, teacher only
@@ -125,5 +131,21 @@ export class SubmissionsComponent implements OnInit {
   //
   // };
 
+}
+
+/**
+ * Set Grade Dialog
+ */
+@Component({
+    selector: 'app-set-grade',
+    templateUrl: './dialogs/set-grade-dialog.component.html',
+})
+export class SetGradeDialogComponent {
+
+    constructor(private dialogRef: MatDialogRef<SubmissionsComponent>, @Inject(MAT_DIALOG_DATA) public data: any) { }
+
+    onNoClick(): void {
+        this.dialogRef.close();
+    }
 }
 

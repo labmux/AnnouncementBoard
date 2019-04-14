@@ -4,7 +4,7 @@
     <mat-card class="example-card container" *ngFor="let a of announcements">
       <mat-card-header>
         <div *ngIf="user == 1" fxFlex="row" fxLayoutAlign="end">
-          <button mat-button id="edit">
+          <button mat-button (click)="openEditAnnouncement()" id="edit">
             <mat-icon>edit</mat-icon>
           </button>
         </div>
@@ -21,7 +21,7 @@
     </mat-card>
   </div>
   <div *ngIf="user == 1" fxFlexOffset="-14%" style="margin-top: 460px;">
-    <button mat-fab color="accent" id="addAnnouncement" (click)="addAnnouncement()">
+    <button mat-fab color="accent" id="addAnnouncement" (click)="openAddAnnouncement()">
       <mat-icon><i class="material-icons">add</i></mat-icon>
     </button>
   </div>

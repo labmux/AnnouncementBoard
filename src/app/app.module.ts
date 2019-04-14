@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import {AnnouncementsComponent} from './views/announcements/announcements.component';
+import { AnnouncementsComponent, EditAnnouncementComponent} from './views/announcements/announcements.component';
 import { SubmissionsComponent } from './views/submissions/submissions.component';
 import { HttpClientModule } from '@angular/common/http';
 import {ApiService} from './models/services/api.service';
@@ -11,6 +11,7 @@ import { NavbarComponent } from './views/navbar/navbar.component';
 import { LoginPageComponent } from './views/login-page/login-page.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatDialogModule} from '@angular/material/dialog';
+import { StudentSubmitionsDialogComponent } from './views/assignments/assignments.component';
 
 /*
     Angular Material
@@ -23,11 +24,11 @@ import {
     MatExpansionModule,
     MatIconModule,
     MatInputModule,
-  MatSidenavModule,
+    MatSidenavModule,
     MatTabsModule,
-  MatDividerModule,
-  MatTableModule,
-  MatToolbarModule,
+    MatDividerModule,
+    MatTableModule,
+    MatToolbarModule,
     MatButtonToggleModule
 
 
@@ -35,12 +36,8 @@ import {
 import {FlexLayoutModule} from '@angular/flex-layout';
 import { AssignmentsComponent } from './views/assignments/assignments.component';
 import {RegisterComponent} from './views/register/register.component';
-import { AddAnnoucementsComponent } from './views/add-annoucements/add-annoucements.component';
-import { AddAnnouncementsContentComponent } from './views/add-announcements-content/add-announcements-content.component';
-import { SetGradeComponent } from './views/set-grade/set-grade.component';
-import { SetGradeDialogComponent } from './views/set-grade-dialog/set-grade-dialog.component';
-import { StudentSubmitionsComponent } from './views/student-submitions/student-submitions.component';
-import { StudentSubmitionsDialogComponent } from './views/student-submitions-dialog/student-submitions-dialog.component';
+import { SetGradeDialogComponent } from './views/submissions/submissions.component';
+import {AddAnnouncementsContentComponent} from './views/announcements/announcements.component';
 
 
 
@@ -55,12 +52,10 @@ import { StudentSubmitionsDialogComponent } from './views/student-submitions-dia
     LoginPageComponent,
     RegisterComponent,
     AssignmentsComponent,
-    AddAnnoucementsComponent,
-    AddAnnouncementsContentComponent,
-    SetGradeComponent,
     SetGradeDialogComponent,
-    StudentSubmitionsComponent,
-    StudentSubmitionsDialogComponent
+    StudentSubmitionsDialogComponent,
+    AddAnnouncementsContentComponent,
+    EditAnnouncementComponent
   ],
   imports: [
     BrowserModule,
@@ -88,8 +83,7 @@ import { StudentSubmitionsDialogComponent } from './views/student-submitions-dia
   ],
   providers: [ApiService],
   bootstrap: [AppComponent],
-  entryComponents: [AssignmentsComponent, AddAnnouncementsContentComponent, SetGradeDialogComponent, StudentSubmitionsDialogComponent
-  ]
+  entryComponents: [AssignmentsComponent, AddAnnouncementsContentComponent, EditAnnouncementComponent, SetGradeDialogComponent, StudentSubmitionsDialogComponent]
 })
 export class AppModule { }
 

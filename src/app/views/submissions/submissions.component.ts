@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Submission} from '../../models/submission';
 import {ApiService} from '../../models/services/api.service';
-import {Announcement} from '../../models/announcement';
+import {Announcement} from '../../models/Announcement';
 import {Assignment} from '../../models/assignment';
 
 @Component({

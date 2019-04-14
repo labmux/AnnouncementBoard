@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Announcement} from '../../models/announcement';
+import {Announcement} from '../../models/Announcement';
 import {ApiService} from '../../models/services/api.service';
 
 @Component({
@@ -15,7 +15,7 @@ export class AnnouncementsComponent implements OnInit {
   // announcements: Announcement[];
   user: number;
 
-  announcements = [
+  /*announcements = [
       {
           teacher: 'Ahad Deghani',
           subject: 'Mathematics',
@@ -57,7 +57,9 @@ export class AnnouncementsComponent implements OnInit {
           '            bred for hunting.'
       },
   ];
+*/
 
+    announcements: Announcement;
   constructor(private api: ApiService) { }
 
   ngOnInit() {

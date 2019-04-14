@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {Submission} from '../submission';
-import {Announcement} from '../announcement';
+import {Announcement} from '../Announcement';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +10,7 @@ import {Announcement} from '../announcement';
 export class ApiService {
 
   // TODO url of php api
-  url = '';
+  url = 'http://';
 
   constructor(private http: HttpClient) { }
 

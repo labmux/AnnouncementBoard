@@ -1,25 +1,26 @@
-import { Component} from '@angular/core';
-
+import { Component, OnInit } from '@angular/core';
 import {MatDialog} from '@angular/material';
-import {AssignmentsComponent} from '../assignments/assignments.component';
+
+import {StudentSubmitionsDialogComponent} from '../student-submitions-dialog/student-submitions-dialog.component';
 
 export interface DialogData {
   animal: string;
   name: string;
 }
+
 @Component({
-  selector: 'app-submissions',
-  templateUrl: './submissions.component.html',
-  styleUrls: ['./submissions.component.scss']
+  selector: 'app-student-submitions',
+  templateUrl: './student-submitions.component.html',
+  styleUrls: ['./student-submitions.component.scss']
 })
-export class SubmissionsComponent {
+export class StudentSubmitionsComponent {
   animal: string;
   name: string;
 
   constructor(public dialog: MatDialog) { }
 
   openDialog(): void {
-    const dialogRef = this.dialog.open(AssignmentsComponent, {
+    const dialogRef = this.dialog.open(StudentSubmitionsDialogComponent, {
       width: '550px',
       data: {name: this.name, animal: this.animal}
     });

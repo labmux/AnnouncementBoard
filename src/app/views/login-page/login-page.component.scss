@@ -21,12 +21,17 @@ form {
   margin-left: 5%;
 }
 
-mat-button-toggle {
+.mat-button-toggle-checked {
   background-color: #ff4081;
   color: white;
+  height: 50px;
+  text-align: center;
 
 }
-
+h2 {
+  margin: auto;
+}
 mat-button-toggle-group {
-  border-radius: 15px 20px;
+  border-radius: 1px 25px;
+  margin-left: 30%;
 }

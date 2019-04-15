@@ -1,5 +1,5 @@
 <!-- If teacher, display addAnnouncement and editAnnouncement buttons -->
-<div fxLayout="row">
+<div fxLayout="row - row">
   <div fxLayout="column" fxLayoutAlign="center center">
     <mat-card class="example-card container" *ngFor="let a of announcements">
       <mat-card-header>
@@ -9,12 +9,12 @@
           </button>
         </div>
         <div mat-card-avatar class="example-header-image"></div>
-        <mat-card-title>{{ a.teacher }}</mat-card-title>
-        <mat-card-subtitle>{{ a.subject }} - {{ a.releaseDate }}</mat-card-subtitle>
+        <mat-card-title>{{ a.tusername }}</mat-card-title>
+        <mat-card-subtitle>{{ a.csubject }} - {{ a.adate }}</mat-card-subtitle>
       </mat-card-header>
 
       <mat-card-content>
-        <p>{{ a.body }}</p>
+        <p>{{ a.abody }}</p>
       </mat-card-content>
       <mat-card-actions align="end">
       </mat-card-actions>

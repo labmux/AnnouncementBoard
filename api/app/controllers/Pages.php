@@ -14,7 +14,7 @@ class Pages extends Controller{
         if(!isset($_SESSION['tid']) and !isset($_SESSION['sid']) ) {
             $posts = $this->postModel->getAllPosts();
 
-
+            echo json_encode(['data'=>$posts]);
         }
         $data = [
             'title'=>'AnnouncementBoard',
@@ -23,7 +23,7 @@ class Pages extends Controller{
         ];
 
         //json encode goes here for announcements
-        $this->view('pages/index',$data);
+      //  $this->view('pages/index',$data);
 
 
     }

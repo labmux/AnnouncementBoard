@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import {Submission} from '../submission';
-import {Announcement} from '../announcement';
+import {Submission} from '../Submission';
+import {Announcement} from '../Announcement';
+import {Assignment} from '../Assignment';
 
 @Injectable({
   providedIn: 'root'
@@ -20,37 +21,49 @@ export class ApiService {
    * subject, dueDate, releaseDate, body, grade
    */
   getAnnouncements(): Observable<Announcement> {
-      return this.http.get<Announcement>(this.url);
+    return this.http.get<Announcement>(this.url);
   }
+
+  getTAssignments(): Observable<Assignment> {
+    return this.http.get<Assignment>(this.url + '/posts/getTAssignments');
+  }
+
+  studentsAsg(id): Observable<any> {
+    return this.http.post(this.url + '/posts/studentsAsg/ ' + id); /*, {
+      // grade: grade,
+      // id: id
+    });*/
+  }
+
 
   /**
    * Receives logged in session information
    */
   getUserLoggedIn(): Observable<any> {
-        return this.http.get(this.url + 'loggedIn');
+    return this.http.get(this.url + 'loggedIn');
   }
 
   /**
    * Updates grade on announcement object
    */
   setGrade(grade, id): Observable<any> {
-        return this.http.post(this.url + 'assignment', {
-            // grade: grade,
-            // id: id
-        });
+    return this.http.post(this.url + 'assignment', {
+      // grade: grade,
+      // id: id
+    });
   }
 
   /**
    * Receives file submitted by the student
    */
   getSubmissions(): Observable<Submission> {
-      return this.http.get<Submission>(this.url + 'submissions');
+    return this.http.get<Submission>(this.url + 'submissions');
   }
 
   /**
    * Updates database with new announcement updated by the teacher only
    */
-  editAnnouncement(announcement: string): void {
+  editAnnouncement(announcement:string): void {
 
   }
 
@@ -64,9 +77,14 @@ export class ApiService {
   /**
    * Add a submission to the database
    */
-  addAssignment(): void {
+  addAssignment(): void{
 
   }
 
 }
 
+/*
+guards should
+
+
+ */

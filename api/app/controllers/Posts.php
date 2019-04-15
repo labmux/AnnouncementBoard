@@ -93,4 +93,16 @@ class Posts extends Controller{
             $this->view('posts/assignments',$data);
         }
     }
+
+    public function getTAssignments(/*$cid*/){
+
+        $getTAssignments=$this->postModel->getTAssignments();
+        echo json_encode(['data'=>$getTAssignments]);
+    }
+
+    public function studentsAsg($id){
+        $studentsAsg=$this->postModel->studentsAsg($id);
+         echo json_encode(['data'=>$studentsAsg]);
+
+    }
 }

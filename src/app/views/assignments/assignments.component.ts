@@ -2,6 +2,7 @@ import { Component, OnInit, Inject } from '@angular/core';
 import {MAT_DIALOG_DATA} from '@angular/material';
 import {DialogData} from '../submissions/submissions.component';
 import {ApiService} from '../../models/services/api.service';
+import {Assignment} from "../../models/Assignment";
 
 @Component({
   selector: 'app-assignments',
@@ -16,8 +17,8 @@ export class AssignmentsComponent implements OnInit {
 
 
   user: number;
-
-  assignments = [
+  id: any;
+ /* assignments = [
     {
       teacher: 'Ahad Deghani',
       subject: 'Mathematics',
@@ -70,10 +71,25 @@ export class AssignmentsComponent implements OnInit {
         'publishing software like Aldus PageMaker including versions of Lorem Ipsum.',
       gradeWorth: 32
     }
-  ];
+  ]; */
+
+  assignments: Assignment;
   ngOnInit() {
     this.user = 2;
+    this.getAssignments();
+  }
 
+
+
+
+  getAssignments() {
+    this.api.getTAssignments().subscribe(
+        (res: any) => {
+
+           this.assignments = res.data;
+           // this.id = res.data.aid;
+        }
+    );
   }
 
   addAssignment(): void {

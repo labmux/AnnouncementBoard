@@ -10,7 +10,8 @@ const routes: Routes = [
   {path: 'announcements', component: AnnouncementsComponent},
     {path: 'submissions', component: SubmissionsComponent},
   {path: 'assignments', component: AssignmentsComponent},
-    {path: 'loginPage', component: LoginPageComponent}
+    {path: 'loginPage', component: LoginPageComponent},
+  {path: 'submissions/:aid', component: SubmissionsComponent}
 
 ];
 

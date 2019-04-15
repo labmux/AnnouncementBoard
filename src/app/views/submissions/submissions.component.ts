@@ -1,15 +1,20 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {Submission} from '../../models/submission';
+import {Submission} from '../../models/Submission';
 import {ApiService} from '../../models/services/api.service';
-
+import {Announcement} from '../../models/Announcement';
 import {MatDialog} from '@angular/material';
 import {AssignmentsComponent} from '../assignments/assignments.component';
 
 export interface DialogData {
   animal: string;
   name: string;
+
+
 }
+
+
+
 @Component({
   selector: 'app-submissions',
   templateUrl: './submissions.component.html',
@@ -19,7 +24,7 @@ export class SubmissionsComponent implements OnInit {
   // TODO @Laurent here are the variables available to you through this array of objects (view submission model for more):
   // TODO let s of submissions = s.file, s.studentName
   // assignments: Assignment[];
-
+  @Input()id: number;
   // holds the value of the grade
   displayedColumns = ['name', 'date', 'teacher', 'subject', 'dueDate', 'grade', 'file', 'setGrade'];
   submissions = [
@@ -91,7 +96,14 @@ export class SubmissionsComponent implements OnInit {
     // get user permission
 
     this.user = 1;
+    this.studentsAsg(this.id);
   }
+
+  studentsAsg(id): void {
+    this.api.studentsAsg(id);
+  }
+
+
 
   /**
    * Updates the grade attribute from the announcement object
@@ -112,11 +124,11 @@ export class SubmissionsComponent implements OnInit {
   /**
    * Gets the student submissions
    */
-  // getSubmissions(): void {
-  //     this.api.getSubmissions().subscribe( results => {
-  //         // this.submissionss = results;
-  //     });
-  //   };
+  getSubmissions(): void {
+      this.api.getSubmissions().subscribe( results => {
+           this.submissions = results;
+      });
+    };
 
   /**
    * Submits the students assignment to the database, student only

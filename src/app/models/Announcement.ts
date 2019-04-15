@@ -1,13 +1,13 @@
-import {Assignment} from './assignment';
+import {Assignment} from './Assignment';
 
 export class Announcement {
   // Database params
   aid: number;    //a
-  classid: number;
-  asgname: string;
-  release: string;
-  due: string;
-  weight: number;
+  csubject: number;
+  abody: string;
+  adate: string;
+  tusername: string;
+
 
   // teacher: string;
   // subject: string;
@@ -15,10 +15,10 @@ export class Announcement {
   // releaseDate: string;
   constructor(args?) {
     if (args) {
-      // this.subject = args.subject;
-      // this.teacher = args.teacher;
-      // this.body = args.body;
-      // this.releaseDate = args.releaseDate;
+       this.csubject = args.csubject;
+       this.abody = args.abody;
+       this.adate = args.adate;
+       this.tusername = args.tusername;
     }
   }
 }

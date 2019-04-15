@@ -39,16 +39,16 @@ class Post{
         return $results;
     }
 
-    public function getTAssignments(/*$cid*/)
+    public function getTAssignments()
     {
         $this->db->query('SELECT * FROM assignments 
                            INNER JOIN class ON assignments.classid = class.cid 
                            INNER JOIN enrolled ON enrolled.classid = class.cid 
                            INNER JOIN students ON students.sid = enrolled.sid  
                            INNER JOIN teaching ON teaching.classid = class.cid 
-                           INNER JOIN teachers ON teachers.tid = teaching.tid ORDER BY class.cid');
+                           INNER JOIN teachers ON teachers.tid = teaching.tid ');
         // gives an array of objects
-        //$this->db->bind(':cid', $cid);
+        //$this->db->bind(':tid', $tid);
         $results = $this->db->resultSet(); // used to return more than 1 row
         return $results;
     }
@@ -96,7 +96,16 @@ class Post{
 
     public function getSubmissions($asgid)
     {
-        $this->db->query('SELECT * FROM submissions WHERE asgid = :asgid');
+        $this->db->query('select * from students 
+inner JOIN enrolled
+on students.sid = enrolled.sid
+inner join class
+on class.cid = enrolled.classid
+inner join assignments
+on class.cid = assignments.classid
+inner join submissions s on assignments.aid = s.asgid
+inner join sub_read sr on assignments.aid = sr.anid
+where assignments.aid = :asgid;');
         // gives an array of objects
         $this->db->bind(':asgid', $asgid);
         $results = $this->db->resultSet(); // used to return more than 1 row

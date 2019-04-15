@@ -28,59 +28,71 @@ export class ApiService {
     return this.http.get<Assignment>(this.url + '/posts/getTAssignments');
   }
 
-  studentsAsg(id): Observable<any> {
-    return this.http.post(this.url + '/posts/studentsAsg/ ' + id); /*, {
-      // grade: grade,
-      // id: id
-    });*/
+  /**
+   * Receives file submitted by the student
+   */
+  getSubmissions(id): Observable<Submission> {
+    return this.http.get<Submission>(this.url + '/posts/getSubmissions/ ' + id);
   }
 
+  /*
+  studentsAsg(id): Observable<any> {
+    return this.http.post(this.url + '/posts/getTAssignments' + id , {
+       // grade: grade,
+          id: id
+    });
+  }
+
+  */
 
   /**
    * Receives logged in session information
    */
-  getUserLoggedIn(): Observable<any> {
-    return this.http.get(this.url + 'loggedIn');
-  }
 
+  /*
+  getUserLoggedIn(): Observable<any> {
+        return this.http.get(this.url + 'loggedIn');
+  }
+*/
   /**
    * Updates grade on announcement object
    */
+
+  /*
   setGrade(grade, id): Observable<any> {
-    return this.http.post(this.url + 'assignment', {
-      // grade: grade,
-      // id: id
-    });
+        return this.http.post(this.url + 'assignment', {
+            // grade: grade,
+            // id: id
+        });
   }
 
-  /**
-   * Receives file submitted by the student
-   */
-  getSubmissions(): Observable<Submission> {
-    return this.http.get<Submission>(this.url + 'submissions');
-  }
+  */
 
   /**
    * Updates database with new announcement updated by the teacher only
    */
+
+  /*
   editAnnouncement(announcement:string): void {
 
   }
-
+*/
   /**
    * Adds a new announcement to the database, teacher only
    */
+  /*
   addAnnouncement(announcement: string): void {
 
   }
-
+*/
   /**
    * Add a submission to the database
    */
+  /*
   addAssignment(): void{
 
   }
-
+*/
 }
 
 /*

@@ -91,9 +91,9 @@ export class AssignmentsComponent implements OnInit {
         }
     );
   }
-
+/*
   addAssignment(): void {
     this.api.addAssignment();
   }
-
+*/
 }

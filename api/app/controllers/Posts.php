@@ -94,15 +94,15 @@ class Posts extends Controller{
         }
     }
 
-    public function getTAssignments(/*$cid*/){
+    public function getSubmissions($id)
+    {
+        $getSubmissions = $this->postModel->getSubmissions($id);
+        echo json_encode(['data'=>$getSubmissions]);
+    }
 
-        $getTAssignments=$this->postModel->getTAssignments();
+    public function getTAssignments()
+    {
+        $getTAssignments = $this->postModel->getTAssignments();
         echo json_encode(['data'=>$getTAssignments]);
-    }
-
-    public function studentsAsg($id){
-        $studentsAsg=$this->postModel->studentsAsg($id);
-         echo json_encode(['data'=>$studentsAsg]);
-
-    }
+   }
 }

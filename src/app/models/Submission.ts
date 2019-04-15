@@ -8,7 +8,7 @@ export class Submission {
   asgname: string;
   susername: string;
   submission: string;
-  sub_read: string;
+  subRead: string;
   date: string;
   grade: number;
 
@@ -26,7 +26,7 @@ export class Submission {
       this.asgname = args.asgname;
       this.susername = args.susername;
       this.submission = args.submission;
-      this.sub_read = args.sub_read;
+      this.subRead = args.sub_read;
       this.date = args.date;
       this.grade = args.grade;
     }

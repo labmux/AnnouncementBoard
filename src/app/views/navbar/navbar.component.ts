@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -7,10 +8,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor() { }
+  @Input() user: string;
+  constructor(private route: ActivatedRoute, private router: Router) { }
 
   showFiller = false;
   ngOnInit() {
+
+      console.log(this.user);
+      // this.user = this.route.snapshot.queryParamMap.get('user');
+
+
+    // this.route.paramMap.subscribe(params => {
+    //     this.user = params.get('user');
+    // });
+  }
+
+  goToAnnouncements() {
+      this.router.navigateByUrl('announcements/' + this.user);
+  }
+
+  goToAssignments() {
+      this.router.navigateByUrl('assignments/' + this.user);
   }
 
 }

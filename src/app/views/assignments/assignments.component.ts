@@ -1,6 +1,9 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import {Component, OnInit, Inject, Input} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialog, MatDialogRef} from '@angular/material';
 import {ApiService} from '../../models/services/api.service';
+import {ActivatedRoute} from '@angular/router';
+import {LoginPageComponent} from '../login-page/login-page.component';
+import {UserService} from '../../models/services/user.service';
 
 @Component({
   selector: 'app-assignments',
@@ -10,12 +13,11 @@ import {ApiService} from '../../models/services/api.service';
 export class AssignmentsComponent implements OnInit {
 
   // @Inject(MAT_DIALOG_DATA) public data: DialogData,
-  constructor(private api: ApiService, private dialog: MatDialog) {
+  constructor(private api: ApiService, private dialog: MatDialog, private route: ActivatedRoute, private userService: UserService) {
   }
 
 
   user: number;
-
   assignments = [
     {
       teacher: 'Ahad Deghani',
@@ -71,8 +73,7 @@ export class AssignmentsComponent implements OnInit {
     }
   ];
   ngOnInit() {
-    this.user = 2;
-
+    this.user = this.userService.getUser();
   }
 
   addAssignment(): void {

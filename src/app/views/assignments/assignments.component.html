@@ -23,6 +23,7 @@
           <p>{{ a.body }}</p>
           <p><b>Grade Worth: {{ a.gradeWorth }}</b></p>
           <p><b>Due Date: {{ a.dueDate }}</b></p>
+          <app-submissions></app-submissions>
         </ng-container>
 
 
@@ -40,6 +41,6 @@
     <mat-icon><i class="material-icons">add</i></mat-icon>
   </button>
 </div>
-<div *ngIf="user == 0" style="margin: auto">
+<div *ngIf="user == 0">
   <h2>Please Sign In to view this page</h2>
 </div>

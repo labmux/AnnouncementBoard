@@ -2,6 +2,8 @@ import {Component, Inject, OnInit} from '@angular/core';
 import {Announcement} from '../../models/announcement';
 import {ApiService} from '../../models/services/api.service';
 import {MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material';
+import {ActivatedRoute} from '@angular/router';
+import {UserService} from '../../models/services/user.service';
 
 
 @Component({
@@ -61,11 +63,13 @@ export class AnnouncementsComponent implements OnInit {
   user: number;
   // announcements: Announcement;
 
-  constructor(private api: ApiService, private dialog: MatDialog) {
+  constructor(private api: ApiService, private dialog: MatDialog, private route: ActivatedRoute, private userService: UserService) {
   }
 
   ngOnInit() {
-    this.user = 1;
+
+    this.user = this.userService.getUser();
+
     // loads up past announcements on load
     this.getAnnouncements();
   }

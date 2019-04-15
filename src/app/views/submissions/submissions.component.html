@@ -9,8 +9,8 @@
 
   <!-- Name Columfgfvdgdfgn -->
   <ng-container matColumnDef="date">
-    <th mat-header-cell *matHeaderCellDef>Due Date</th>
-    <td mat-cell *matCellDef="let sub"> {{ sub.due}} </td>
+    <th mat-header-cell *matHeaderCellDef>Date Submitted</th>
+    <td mat-cell *matCellDef="let sub"> {{ sub.statusDate}} </td>
   </ng-container>
 
   <!-- Weight Column -->
@@ -22,12 +22,13 @@
   <!-- Weight Column -->
   <ng-container matColumnDef="status">
     <th mat-header-cell *matHeaderCellDef>Status: </th>
-    <td mat-cell *matCellDef="let sub"> {{ sub.issubmit }} </td>
+    <td mat-cell *matCellDef="let sub">Was Read: {{ sub.reada }} <br>
+        Submitted: {{ sub.statussub }}</td>
   </ng-container>
 
   <ng-container matColumnDef="file">
     <th mat-header-cell *matHeaderCellDef> Assignment</th>
-    <td mat-cell *matCellDef="let sub"><a download="filename" target="_blank" href="{{ sub.submission }}">
+    <td mat-cell *matCellDef="let sub">{{ sub.submission }}<a download="filename" target="_blank" href="{{ sub.submission }}">
       <button mat-raised-button color="warn">Download</button>
     </a></td>
   </ng-container>

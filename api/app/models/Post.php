@@ -96,16 +96,15 @@ class Post{
 
     public function getSubmissions($asgid)
     {
-        $this->db->query('select * from students 
-inner JOIN enrolled
-on students.sid = enrolled.sid
-inner join class
-on class.cid = enrolled.classid
-inner join assignments
-on class.cid = assignments.classid
-inner join submissions s on assignments.aid = s.asgid
-inner join sub_read sr on assignments.aid = sr.anid
-where assignments.aid = :asgid;');
+        $this->db->query('select * from(
+select * , if(sid in (select distinct sid from sub_read ),1,0) as reada   
+    from students) as a
+inner join enrolled as b 
+on a.sid = b.sid
+left join submissions as c 
+on b.sid = c.stid
+left join assignments as d 
+on d.aid = :asgid;');
         // gives an array of objects
         $this->db->bind(':asgid', $asgid);
         $results = $this->db->resultSet(); // used to return more than 1 row

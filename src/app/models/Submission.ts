@@ -8,8 +8,9 @@ export class Submission {
   asgname: string;
   susername: string;
   submission: string;
-  subRead: string;
-  date: string;
+  reada: string;
+  statussub: string;
+  statusDate: string;
   grade: number;
 
   // firstName: string;
@@ -26,8 +27,9 @@ export class Submission {
       this.asgname = args.asgname;
       this.susername = args.susername;
       this.submission = args.submission;
-      this.subRead = args.sub_read;
-      this.date = args.date;
+      this.reada = ( args.reada = '1') ? 'Read' : 'Not Read';
+      this.statussub = ( args.statussub = '1') ? 'Submitted' : 'Not Submitted';
+      this.statusDate = args.statusDate;
       this.grade = args.grade;
     }
   }

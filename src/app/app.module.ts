@@ -89,7 +89,7 @@ import {AddAnnouncementsContentComponent} from './views/announcements/announceme
     MatDialogModule,
     FormsModule
   ],
-  providers: [ApiService, UserService],
+  providers: [ApiService, UserService, NavbarComponent],
   bootstrap: [AppComponent],
   entryComponents: [AssignmentsComponent, AddAnnouncementsContentComponent,
                     EditAnnouncementComponent, SetGradeDialogComponent, StudentSubmitionsDialogComponent]

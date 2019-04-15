@@ -1,18 +1,25 @@
-<form class="example-form">
-  <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
-    <mat-button-toggle value="Student" (click)="setStudent()"><h2>Student</h2></mat-button-toggle>
-    <mat-button-toggle value="teacher" (click)="setTeacher()"><h2>Teacher</h2></mat-button-toggle>
-  </mat-button-toggle-group>
+<div *ngIf="user !== 1 && user !== 2">
+    <form class="example-form">
+        <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
+            <mat-button-toggle value="Student" (click)="setStudent()"><h2>Student</h2></mat-button-toggle>
+            <mat-button-toggle value="teacher" (click)="setTeacher()"><h2>Teacher</h2></mat-button-toggle>
+        </mat-button-toggle-group>
 
-  <mat-form-field class="example-full-width">
-    <input matInput placeholder="username" [(ngModel)]="username" name="username" required>
-  </mat-form-field>
+        <mat-form-field class="example-full-width">
+            <input matInput placeholder="username" [(ngModel)]="username" name="username" required>
+        </mat-form-field>
 
-  <mat-form-field class="example-full-width">
-  <input matInput type="password" placeholder="password" [(ngModel)]="password" name="password" required>
-  </mat-form-field>
+        <mat-form-field class="example-full-width">
+            <input matInput type="password" placeholder="password" [(ngModel)]="password" name="password" required>
+        </mat-form-field>
 
-  <button mat-flat-button color="primary" (click)="login()">Log In</button>
-</form>
+        <button mat-flat-button color="primary" (click)="login()">Log In</button>
+    </form>
+</div>
+<div *ngIf="user === 1 || user === 2">
+    <h2>Signed in as {{ loginStatus }} <button mat-flat-button color="accent" (click)="signOut()">Sign Out</button></h2>
+
+</div>
+
 
 

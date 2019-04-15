@@ -9,21 +9,21 @@
       <mat-expansion-panel *ngFor="let a of assignments">
         <mat-expansion-panel-header>
           <mat-panel-title class="header-spacer">
-            {{ a.teacher }}
+            <b> Teacher: &nbsp;</b> {{ a.tusername }}
           </mat-panel-title>
           <mat-panel-description class="header-spacer">
-            {{ a.subject}}
+            <b>Asg Name: &nbsp; </b> {{ a.asgname}}
           </mat-panel-description>
           <mat-panel-description class="header-spacer">
-            Status: {{ a.submissionStatus}}
+            <b>  Weight: &nbsp;</b> {{ a.weight }}
           </mat-panel-description>
         </mat-expansion-panel-header>
 
         <ng-container>
-          <p>{{ a.body }}</p>
-          <p><b>Grade Worth: {{ a.gradeWorth }}</b></p>
-          <p><b>Due Date: {{ a.dueDate }}</b></p>
-          <app-submissions></app-submissions>
+          <p><b>Subject: {{ a.csubject }} </b></p>
+          <p><b>Due Date: {{ a.due }}</b></p>
+          <ng-template matExpansionPanelContent><app-submissions [id]="a.aid"></app-submissions></ng-template>
+
         </ng-container>
 
 

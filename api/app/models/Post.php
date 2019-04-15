@@ -39,7 +39,29 @@ class Post{
         return $results;
     }
 
-    public function getAssignments($cid)
+    public function getTAssignments()
+    {
+        $this->db->query('SELECT * FROM assignments 
+                           INNER JOIN class ON assignments.classid = class.cid 
+                           INNER JOIN enrolled ON enrolled.classid = class.cid 
+                           INNER JOIN students ON students.sid = enrolled.sid  
+                           INNER JOIN teaching ON teaching.classid = class.cid 
+                           INNER JOIN teachers ON teachers.tid = teaching.tid ');
+        // gives an array of objects
+        //$this->db->bind(':tid', $tid);
+        $results = $this->db->resultSet(); // used to return more than 1 row
+        return $results;
+    }
+
+    public function allTAssignments()
+    {
+        $this->db->query('SELECT * FROM assignments INNER JOIN class ON assignments.cid = class.cid ORDER BY class.cid');
+        // gives an array of objects
+        $results = $this->db->resultSet(); // used to return more than 1 row
+        return $results;
+    }
+
+    public function getSAssignments($cid)
     {
         $this->db->query('SELECT * FROM assignments INNER JOIN class ON assignments.cid = class.cid WHERE assignments.cid = :cid ORDER BY class.cid');
         // gives an array of objects
@@ -48,13 +70,14 @@ class Post{
         return $results;
     }
 
-    public function allAssignments()
+    public function allSAssignments()
     {
         $this->db->query('SELECT * FROM assignments INNER JOIN class ON assignments.cid = class.cid ORDER BY class.cid');
         // gives an array of objects
         $results = $this->db->resultSet(); // used to return more than 1 row
         return $results;
     }
+
     public function addSubmission($data)
     {
         $this->db->query('INSERT INTO submissions (asgid, stid, submission) VALUES (:aid,  :sid, :submission)');
@@ -73,7 +96,15 @@ class Post{
 
     public function getSubmissions($asgid)
     {
-        $this->db->query('SELECT * FROM submissions WHERE asgid = :asgid');
+        $this->db->query('select * from(
+select * , if(sid in (select distinct sid from sub_read ),1,0) as reada   
+    from students) as a
+inner join enrolled as b 
+on a.sid = b.sid
+left join submissions as c 
+on b.sid = c.stid
+left join assignments as d 
+on d.aid = :asgid;');
         // gives an array of objects
         $this->db->bind(':asgid', $asgid);
         $results = $this->db->resultSet(); // used to return more than 1 row
@@ -95,9 +126,24 @@ class Post{
         }
     }
 
+    public function studentsAsg($data){
 
+        $this->db->query('SELECT * FROM assignments inner join class
+on class.cid = assignments.classid
+ inner JOIN enrolled
+on class.cid = enrolled.classid
+inner JOIN students
+on students.sid = enrolled.sid
+inner join submissions on submissions.asgid = :asgid AND  assignments.aid = :asgid
+inner join sub_read on 
+sub_read.sid = sub_read.sid;');
+        $this->db->bind(':asgid', $data);
+
+
+        $results = $this->db->resultSet(); // used to return more than 1 row
+        return $results;
+
+    }
 
 
 }
-
-

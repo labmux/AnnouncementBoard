@@ -1,9 +1,9 @@
 import {Component, OnInit, Inject} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialog, MatDialogRef} from '@angular/material';
 import {ApiService} from '../../models/services/api.service';
-import {ActivatedRoute} from '@angular/router';
 import {UserService} from '../../models/services/user.service';
-import {AnnouncementsComponent, EditAnnouncementComponent} from '../announcements/announcements.component';
+import {AnnouncementsComponent} from '../announcements/announcements.component';
+import {Assignment} from '../../models/Assignment';
 
 @Component({
   selector: 'app-assignments',
@@ -13,65 +13,70 @@ import {AnnouncementsComponent, EditAnnouncementComponent} from '../announcement
 export class AssignmentsComponent implements OnInit {
 
   // @Inject(MAT_DIALOG_DATA) public data: DialogData,
-  constructor(private api: ApiService, private dialog: MatDialog, private route: ActivatedRoute, private userService: UserService) {
+  constructor(private api: ApiService,
+              private userService: UserService,
+              private dialog: MatDialog) {
   }
 
 
   user: number;
-  assignments = [
-    {
-      teacher: 'Ahad Deghani',
-      subject: 'Mathematics',
-      releaseDate: 'Tuesday April 1st, 2018',
-      dueDate: 'Wednesday, May 22 2018',
-      submissionStatus: 'not submitted',
-      body: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard ' +
-        'dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. ' +
-        'It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. ' +
-        'It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop ' +
-        'publishing software like Aldus PageMaker including versions of Lorem Ipsum.',
-      gradeWorth: 32
-    },
-    {
-      teacher: 'Ahad Deghani',
-      subject: 'Mathematics',
-      releaseDate: 'Tuesday April 1st, 2018',
-      dueDate: 'Wednesday, May 22 2018',
-      submissionStatus: 'not submitted',
-      body: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard ' +
-        'dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. ' +
-        'It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. ' +
-        'It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop ' +
-        'publishing software like Aldus PageMaker including versions of Lorem Ipsum.',
-      gradeWorth: 32
-    },
-    {
-      teacher: 'Ahad Deghani',
-      subject: 'Mathematics',
-      releaseDate: 'Tuesday April 1st, 2018',
-      dueDate: 'Wednesday, May 22 2018',
-      submissionStatus: 'not submitted',
-      body: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard ' +
-        'dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. ' +
-        'It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. ' +
-        'It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop ' +
-        'publishing software like Aldus PageMaker including versions of Lorem Ipsum.',
-      gradeWorth: 32
-    },
-    {
-      teacher: 'Ahad Deghani',
-      subject: 'Mathematics',
-      releaseDate: 'Tuesday April 1st, 2018',
-      dueDate: 'Wednesday, May 22 2018',
-      submissionStatus: 'not submitted',
-      body: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard ' +
-        'dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. ' +
-        'It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. ' +
-        'It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop ' +
-        'publishing software like Aldus PageMaker including versions of Lorem Ipsum.',
-      gradeWorth: 32
-    }
-  ];
+  id: any;
+  // assignments = [
+  //   {
+  //     teacher: 'Ahad Deghani',
+  //     subject: 'Mathematics',
+  //     releaseDate: 'Tuesday April 1st, 2018',
+  //     dueDate: 'Wednesday, May 22 2018',
+  //     submissionStatus: 'not submitted',
+  //     body: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard ' +
+  //       'dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. ' +
+  //       'It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. ' +
+  //       'It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop ' +
+  //       'publishing software like Aldus PageMaker including versions of Lorem Ipsum.',
+  //     gradeWorth: 32
+  //   },
+  //   {
+  //     teacher: 'Ahad Deghani',
+  //     subject: 'Mathematics',
+  //     releaseDate: 'Tuesday April 1st, 2018',
+  //     dueDate: 'Wednesday, May 22 2018',
+  //     submissionStatus: 'not submitted',
+  //     body: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard ' +
+  //       'dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. ' +
+  //       'It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. ' +
+  //       'It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop ' +
+  //       'publishing software like Aldus PageMaker including versions of Lorem Ipsum.',
+  //     gradeWorth: 32
+  //   },
+  //   {
+  //     teacher: 'Ahad Deghani',
+  //     subject: 'Mathematics',
+  //     releaseDate: 'Tuesday April 1st, 2018',
+  //     dueDate: 'Wednesday, May 22 2018',
+  //     submissionStatus: 'not submitted',
+  //     body: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard ' +
+  //       'dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. ' +
+  //       'It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. ' +
+  //       'It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop ' +
+  //       'publishing software like Aldus PageMaker including versions of Lorem Ipsum.',
+  //     gradeWorth: 32
+  //   },
+  //   {
+  //     teacher: 'Ahad Deghani',
+  //     subject: 'Mathematics',
+  //     releaseDate: 'Tuesday April 1st, 2018',
+  //     dueDate: 'Wednesday, May 22 2018',
+  //     submissionStatus: 'not submitted',
+  //     body: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard ' +
+  //       'dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. ' +
+  //       'It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. ' +
+  //       'It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop ' +
+  //       'publishing software like Aldus PageMaker including versions of Lorem Ipsum.',
+  //     gradeWorth: 32
+  //   }
+  // ];
+
+  assignments: Assignment;
   ngOnInit() {
     this.user = this.userService.getUser();
   }
@@ -127,7 +132,7 @@ export class NewAssignmentDialogComponent {
     }
 
     addAssignment(name: string, assignment: string): void {
-        this.api.addAssignment(name, assignment);
+        // this.api.addAssignment(name, assignment);
     }
 
 
@@ -157,9 +162,14 @@ export class EditAssignmentsComponent {
     }
 
     onNoClick(): void {
-        this.dialogRef.close();
+        // this.dialogRef.close();
     }
-}
+  }
+
+
+
+
+
 
 /**
  * Edit Assignments Dialog
@@ -183,6 +193,22 @@ export class UploadAssignmentComponent {
     editAssignments(name: string, assignment: string): void {
         this.api.editAnnouncement(name, assignment);
     }
+
+  getAssignments() {
+    this.api.getTAssignments().subscribe(
+        (res: any) => {
+
+           this.assignments = res.data;
+           // this.id = res.data.aid;
+        }
+    );
+  }
+/*
+  addAssignment(): void {
+    this.api.addAssignment();
+  }
+*/
+
 
     onNoClick(): void {
         this.dialogRef.close();

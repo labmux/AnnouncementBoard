@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import {Submission} from '../submission';
-import {Announcement} from '../announcement';
+import {Submission} from '../Submission';
+import {Announcement} from '../Announcement';
+import {Assignment} from '../Assignment';
 
 @Injectable({
   providedIn: 'root'
@@ -23,16 +24,41 @@ export class ApiService {
       return this.http.get<Announcement>(this.url);
   }
 
-  /**
-   * Receives logged in session information
-   */
-  getUser(username: string, password): Observable<any> {
-        return this.http.get(this.url + 'loggedIn');
+  getTAssignments(): Observable<Assignment> {
+    return this.http.get<Assignment>(this.url + '/posts/getTAssignments');
   }
 
   /**
+   * Receives file submitted by the student
+   */
+  getSubmissions(id): Observable<Submission> {
+    return this.http.get<Submission>(this.url + '/posts/getSubmissions/ ' + id);
+  }
+
+  /*
+  studentsAsg(id): Observable<any> {
+    return this.http.post(this.url + '/posts/getTAssignments' + id , {
+       // grade: grade,
+          id: id
+    });
+  }
+
+  */
+
+  /**
+   * Receives logged in session information
+   */
+
+  /*
+  getUserLoggedIn(): Observable<any> {
+        return this.http.get(this.url + 'loggedIn');
+  }
+*/
+  /**
    * Updates grade on announcement object
    */
+
+  /*
   setGrade(grade, id): Observable<any> {
         return this.http.post(this.url + 'assignment', {
             // grade: grade,
@@ -43,9 +69,9 @@ export class ApiService {
   /**
    * Receives file submitted by the student
    */
-  getSubmissions(): Observable<Submission> {
-      return this.http.get<Submission>(this.url + 'submissions');
-  }
+  // getSubmissions(): Observable<Submission> {
+  //     return this.http.get<Submission>(this.url + 'submissions');
+  // }
 
   /**
    * Updates database with new announcement updated by the teacher only
@@ -57,16 +83,16 @@ export class ApiService {
   /**
    * Adds a new announcement to the database, teacher only
    */
-  addAnnouncement(name: string, announcement: string): void {
-
-  }
+  // addAnnouncement(name: string, announcement: string): void {
+  //
+  // }
 
   /**
    * Add a submission to the database
    */
-  addAssignment(name: string, assignment: string): void {
-
-  }
+  // addAssignment(name: string, assignment: string): void {
+  //
+  // }
 
 }
 

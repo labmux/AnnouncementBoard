@@ -7,15 +7,16 @@ import {AnnouncementsComponent} from './views/announcements/announcements.compon
 import {NavbarComponent} from './views/navbar/navbar.component';
 
 const routes: Routes = [
-  {path: '', component: AnnouncementsComponent},
-  {path: 'announcements', component: AnnouncementsComponent},
-  {path: 'announcements/:user', component: AnnouncementsComponent},
-  {path: 'submissions', component: SubmissionsComponent},
-  {path: 'assignments', component: AssignmentsComponent},
-  {path: 'assignments/:user', component: AssignmentsComponent},
-  {path: 'loginPage', component: LoginPageComponent},
-  {path: 'navbar/user', component: NavbarComponent},
-  {path: 'navbar', component: AnnouncementsComponent}
+    {path: '', component: AnnouncementsComponent},
+    {path: 'announcements', component: AnnouncementsComponent},
+    {path: 'announcements/:user', component: AnnouncementsComponent},
+    {path: 'submissions', component: SubmissionsComponent},
+    {path: 'assignments', component: AssignmentsComponent},
+    {path: 'assignments/:user', component: AssignmentsComponent},
+    {path: 'loginPage', component: LoginPageComponent},
+    {path: 'navbar/user', component: NavbarComponent},
+    {path: 'navbar', component: AnnouncementsComponent}
+
 ];
 
 @NgModule({

@@ -93,4 +93,16 @@ class Posts extends Controller{
             $this->view('posts/assignments',$data);
         }
     }
+
+    public function getSubmissions($id)
+    {
+        $getSubmissions = $this->postModel->getSubmissions($id);
+        echo json_encode(['data'=>$getSubmissions]);
+    }
+
+    public function getTAssignments()
+    {
+        $getTAssignments = $this->postModel->getTAssignments();
+        echo json_encode(['data'=>$getTAssignments]);
+   }
 }

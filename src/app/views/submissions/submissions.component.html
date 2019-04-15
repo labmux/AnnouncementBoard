@@ -2,41 +2,31 @@
   <!-- Position Column -->
   <ng-container matColumnDef="name">
     <th mat-header-cell *matHeaderCellDef> Student Name</th>
-    <td mat-cell *matCellDef="let sub"> {{ sub.name }} </td>
+    <td mat-cell *matCellDef="let sub"> {{ sub.susername }} </td>
   </ng-container>
 
-  <!-- Name Column -->
+  <!-- Name Columfgfvdgdfgn -->
   <ng-container matColumnDef="date">
-    <th mat-header-cell *matHeaderCellDef> Date</th>
-    <td mat-cell *matCellDef="let sub"> {{ sub.date}} </td>
+    <th mat-header-cell *matHeaderCellDef>Date Submitted</th>
+    <td mat-cell *matCellDef="let sub"> {{ sub.statusDate}} </td>
   </ng-container>
 
   <!-- Weight Column -->
-  <ng-container matColumnDef="teacher">
-    <th mat-header-cell *matHeaderCellDef> Teacher</th>
-    <td mat-cell *matCellDef="let sub"> {{ sub.assignment.teacher }} </td>
-  </ng-container>
-
-  <!-- Weight Column -->
-  <ng-container matColumnDef="subject">
-    <th mat-header-cell *matHeaderCellDef> Subject</th>
-    <td mat-cell *matCellDef="let sub"> {{ sub.assignment.subject }} </td>
-  </ng-container>
-
-  <!-- Symbol Column -->
-  <ng-container matColumnDef="dueDate">
-    <th mat-header-cell *matHeaderCellDef> Due Date</th>
-    <td mat-cell *matCellDef="let sub"> {{ sub.assignment.dueDate }} </td>
-  </ng-container>
-
   <ng-container matColumnDef="grade">
-    <th mat-header-cell *matHeaderCellDef> Grade</th>
+    <th mat-header-cell *matHeaderCellDef> Grade: </th>
     <td mat-cell *matCellDef="let sub"> {{ sub.grade }} </td>
+  </ng-container>
+
+  <!-- Weight Column -->
+  <ng-container matColumnDef="status">
+    <th mat-header-cell *matHeaderCellDef>Status: </th>
+    <td mat-cell *matCellDef="let sub">Was Read: {{ sub.reada }} <br>
+        Submitted: {{ sub.statussub }}</td>
   </ng-container>
 
   <ng-container matColumnDef="file">
     <th mat-header-cell *matHeaderCellDef> Assignment</th>
-    <td mat-cell *matCellDef="let sub"><a download="filename" target="_blank" href="{{ sub.assignment.file }}">
+    <td mat-cell *matCellDef="let sub">{{ sub.submission }}<a download="filename" target="_blank" href="{{ sub.submission }}">
       <button mat-raised-button color="warn">Download</button>
     </a></td>
   </ng-container>

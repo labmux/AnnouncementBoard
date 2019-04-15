@@ -1,5 +1,5 @@
 import {Component, Inject, OnInit} from '@angular/core';
-import {Announcement} from '../../models/announcement';
+import {Announcement} from '../../models/Announcement';
 import {ApiService} from '../../models/services/api.service';
 import {MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material';
 import {ActivatedRoute} from '@angular/router';
@@ -17,54 +17,54 @@ export class AnnouncementsComponent implements OnInit {
   // TODO let a of announcements = a.subject, a.dueDate, a.releaseDate, a.body, a.grade, a.id
   // accessRights: 0 = no one, 1 = teacher, 2 = student
   // announcements: Announcement[];
-
-  announcements = [
-    {
-      teacher: 'Ahad Deghani',
-      subject: 'Mathematics',
-      releaseDate: 'Tuesday April 1st, 2018',
-      body: 'The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.' +
-        '            A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally' +
-        '            bred for hunting.'
-    },
-    {
-      teacher: 'Ahad Deghani',
-      subject: 'Mathematics',
-      releaseDate: 'Tuesday April 1st, 2018',
-      body: 'The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.' +
-        '            A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally' +
-        '            bred for hunting.'
-    },
-    {
-      teacher: 'Ahad Deghani',
-      subject: 'Mathematics',
-      releaseDate: 'Tuesday April 1st, 2018',
-      body: 'The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.' +
-        '            A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally' +
-        '            bred for hunting.'
-    },
-    {
-      teacher: 'Ahad Deghani',
-      subject: 'Mathematics',
-      releaseDate: 'Tuesday April 1st, 2018',
-      body: 'The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.' +
-        '            A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally' +
-        '            bred for hunting.'
-    },
-    {
-      teacher: 'Ahad Deghani',
-      subject: 'Mathematics',
-      releaseDate: 'Tuesday April 1st, 2018',
-      body: 'The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.' +
-        '            A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally' +
-        '            bred for hunting.'
-    },
-  ];
   user: number;
-  // announcements: Announcement;
 
-  constructor(private api: ApiService, private dialog: MatDialog, private route: ActivatedRoute, private userService: UserService) {
-  }
+  /* announcements: Announcement[]; = [
+       {
+           teacher: 'Ahad Deghani',
+           subject: 'Mathematics',
+           releaseDate: 'Tuesday April 1st, 2018',
+           body: 'The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.' +
+           '            A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally' +
+           '            bred for hunting.'
+       },
+       {
+           teacher: 'Ahad Deghani',
+           subject: 'Mathematics',
+           releaseDate: 'Tuesday April 1st, 2018',
+           body: 'The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.' +
+           '            A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally' +
+           '            bred for hunting.'
+       },
+       {
+           teacher: 'Ahad Deghani',
+           subject: 'Mathematics',
+           releaseDate: 'Tuesday April 1st, 2018',
+           body: 'The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.' +
+           '            A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally' +
+           '            bred for hunting.'
+       },
+       {
+           teacher: 'Ahad Deghani',
+           subject: 'Mathematics',
+           releaseDate: 'Tuesday April 1st, 2018',
+           body: 'The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.' +
+           '            A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally' +
+           '            bred for hunting.'
+       },
+       {
+           teacher: 'Ahad Deghani',
+           subject: 'Mathematics',
+           releaseDate: 'Tuesday April 1st, 2018',
+           body: 'The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.' +
+           '            A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally' +
+           '            bred for hunting.'
+       },
+   ];
+ */
+  announcements: Announcement;
+
+  constructor(private api: ApiService, private dialog: MatDialog, private route: ActivatedRoute, private userService: UserService) {}
 
   ngOnInit() {
 
@@ -77,13 +77,41 @@ export class AnnouncementsComponent implements OnInit {
   /**
    * Receives Announcement objects as observable
    */
+  /*
   getAnnouncements(): void {
-    // this.api.getAnnouncements().subscribe(
-    //     (res => {
-    //         this.announcements = res.data;
-    //     })
-    // );
+       this.api.getAnnouncements().subscribe(
+           (res: Announcement[]) => {
+           this.announcements = res;
+       });
   }
+*/
+
+  getAnnouncements() {
+    this.api.getAnnouncements().subscribe(
+        (res) => {
+
+          this.announcements = res.data;
+          console.log(res);
+        }
+    );
+  }
+  /**
+   * Updates database with new announcement updated by the teacher only
+   */
+
+  /*
+  editAnnouncement(edit: string): void {
+    this.api.editAnnouncement(edit);
+  }
+*/
+  /**
+   * Adds a new announcement to the database, teacher only
+   */
+  /*
+  addAnnouncement(newAnnouncement: string): void {
+    this.api.addAnnouncement(newAnnouncement);
+  }
+*/
 
 
   openAddAnnouncement(): void {

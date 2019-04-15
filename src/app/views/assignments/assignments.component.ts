@@ -1,9 +1,9 @@
-import {Component, OnInit, Inject, Input} from '@angular/core';
+import {Component, OnInit, Inject} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialog, MatDialogRef} from '@angular/material';
 import {ApiService} from '../../models/services/api.service';
 import {ActivatedRoute} from '@angular/router';
-import {LoginPageComponent} from '../login-page/login-page.component';
 import {UserService} from '../../models/services/user.service';
+import {AnnouncementsComponent, EditAnnouncementComponent} from '../announcements/announcements.component';
 
 @Component({
   selector: 'app-assignments',
@@ -76,12 +76,29 @@ export class AssignmentsComponent implements OnInit {
     this.user = this.userService.getUser();
   }
 
-  addAssignment(): void {
-    this.api.addAssignment();
-  }
 
   openAddAssignment() {
-      const dialogRef = this.dialog.open(StudentSubmitionsDialogComponent, {
+      const dialogRef = this.dialog.open(NewAssignmentDialogComponent, {
+          width: '550px',
+      });
+
+      dialogRef.afterClosed().subscribe(result => {
+          console.log('The dialog was closed');
+      });
+  }
+
+  openEditAssignment(): void {
+      const dialogRef = this.dialog.open(EditAssignmentsComponent, {
+          width: '550px',
+      });
+
+      dialogRef.afterClosed().subscribe(result => {
+          console.log('The dialog was closed');
+      });
+  }
+
+  openUploadAssignment(): void {
+      const dialogRef = this.dialog.open(UploadAssignmentComponent, {
           width: '550px',
       });
 
@@ -95,14 +112,79 @@ export class AssignmentsComponent implements OnInit {
 
 @Component({
     selector: 'app-student-submitions-dialog',
-    templateUrl: './student-upload-dialog.component.html'
+    templateUrl: './dialogs/new-assignment-dialog.component.html'
 })
-export class StudentSubmitionsDialogComponent {
+export class NewAssignmentDialogComponent {
+    name: string;
+    assignment: string;
 
-    constructor(private dialogRef: MatDialogRef<AssignmentsComponent>, @Inject(MAT_DIALOG_DATA) public data: any) { }
+    constructor(private dialogRef: MatDialogRef<AssignmentsComponent>,
+                private api: ApiService,
+                @Inject(MAT_DIALOG_DATA) public data: any) { }
 
     onNoClick(): void {
         this.dialogRef.close();
     }
 
+    addAssignment(name: string, assignment: string): void {
+        this.api.addAssignment(name, assignment);
+    }
+
+
+}
+
+/**
+ * Edit Assignments Dialog
+ */
+@Component({
+    selector: 'app-edit-assignments-content',
+    templateUrl: './dialogs/edit-assignments-dialog.html',
+})
+export class EditAssignmentsComponent {
+
+    name: string;
+    announcement: string;
+
+    constructor(private dialogRef: MatDialogRef<AnnouncementsComponent>,
+                private api: ApiService,
+                @Inject(MAT_DIALOG_DATA) public data: any) { }
+
+    /**
+     * Updates database with new announcement updated by the teacher only
+     */
+    editAssignments(name: string, assignment: string): void {
+        this.api.editAnnouncement(name, assignment);
+    }
+
+    onNoClick(): void {
+        this.dialogRef.close();
+    }
+}
+
+/**
+ * Edit Assignments Dialog
+ */
+@Component({
+    selector: 'app-upload-assignment-content',
+    templateUrl: './dialogs/upload-assignment-dialog.html',
+})
+export class UploadAssignmentComponent {
+
+    name: string;
+    announcement: string;
+
+    constructor(private dialogRef: MatDialogRef<AnnouncementsComponent>,
+                private api: ApiService,
+                @Inject(MAT_DIALOG_DATA) public data: any) { }
+
+    /**
+     * Updates database with new announcement updated by the teacher only
+     */
+    editAssignments(name: string, assignment: string): void {
+        this.api.editAnnouncement(name, assignment);
+    }
+
+    onNoClick(): void {
+        this.dialogRef.close();
+    }
 }

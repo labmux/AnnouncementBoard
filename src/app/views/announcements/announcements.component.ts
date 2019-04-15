@@ -85,20 +85,6 @@ export class AnnouncementsComponent implements OnInit {
     // );
   }
 
-  /**
-   * Updates database with new announcement updated by the teacher only
-   */
-  editAnnouncement(edit: string): void {
-    this.api.editAnnouncement(edit);
-  }
-
-  /**
-   * Adds a new announcement to the database, teacher only
-   */
-  addAnnouncement(newAnnouncement: string): void {
-
-    // this.api.addAnnouncement(newAnnouncement);
-  }
 
   openAddAnnouncement(): void {
       const dialogRef = this.dialog.open(AddAnnouncementsContentComponent, {
@@ -130,8 +116,20 @@ export class AnnouncementsComponent implements OnInit {
     templateUrl: './dialogs/add-announcement-dialog.html',
 })
 export class AddAnnouncementsContentComponent {
+    announcement: string;
+    name: string;
 
-    constructor(private dialogRef: MatDialogRef<AnnouncementsComponent>, @Inject(MAT_DIALOG_DATA) public data: any) { }
+    constructor(private dialogRef: MatDialogRef<AnnouncementsComponent>,
+                @Inject(MAT_DIALOG_DATA)
+                public data: any) { }
+
+    /**
+     * Adds a new announcement to the database, teacher only
+     */
+    addAnnouncement(name: string, announcement: string): void {
+
+        // this.api.addAnnouncement(name, announcement);
+    }
 
     onNoClick(): void {
         this.dialogRef.close();
@@ -147,7 +145,19 @@ export class AddAnnouncementsContentComponent {
 })
 export class EditAnnouncementComponent {
 
-    constructor(private dialogRef: MatDialogRef<AnnouncementsComponent>, @Inject(MAT_DIALOG_DATA) public data: any) { }
+    name: string;
+    announcement: string;
+
+    constructor(private dialogRef: MatDialogRef<AnnouncementsComponent>,
+                private api: ApiService,
+                @Inject(MAT_DIALOG_DATA) public data: any) { }
+
+    /**
+     * Updates database with new announcement updated by the teacher only
+     */
+    editAnnouncement(name: string, announcement: string): void {
+        this.api.editAnnouncement(name, announcement);
+    }
 
     onNoClick(): void {
         this.dialogRef.close();

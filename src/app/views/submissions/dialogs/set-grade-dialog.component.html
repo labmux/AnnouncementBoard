@@ -1,11 +1,11 @@
 <div mat-dialog-content>
   <h2>Set Grade</h2>
   <mat-form-field>
-    <input matInput placeholder="Grade">
+    <input matInput placeholder="Grade" [(ngModel)]="grade">
   </mat-form-field>
 </div>
 
 <div mat-dialog-actions>
   <button mat-button (click)="onNoClick()">No Thanks</button>
-  <button mat-button [mat-dialog-close]="data.animal" cdkFocusInitial>Ok</button>
+  <button mat-button (click)="setGrade(grade)">Ok</button>
 </div>

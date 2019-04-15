@@ -29,8 +29,9 @@
 
         <mat-action-row>
           <button mat-raised-button color="warning">Download</button>
-          <button *ngIf="user == 1" mat-raised-button color="accent">Edit</button>
-          <button *ngIf="user == 2" mat-raised-button color="accent" (click)="openAddAssignment()">Upload</button>
+
+          <button *ngIf="user == 1" mat-raised-button color="accent" (click)="openEditAssignment()">Edit</button>
+          <button *ngIf="user == 2" mat-raised-button color="accent" (click)="openUploadAssignment()">Upload</button>
 
         </mat-action-row>
       </mat-expansion-panel>

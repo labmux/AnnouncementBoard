@@ -99,14 +99,6 @@ export class SubmissionsComponent implements OnInit {
           console.log('The dialog was closed');
       });
   }
-  /**
-   * Updates the grade attribute from the announcement object
-   * and updates the database, teacher only
-   */
-  setGrade(grade, id): void {
-    // this.api.setGrade(grade, id).subscribe( results => {
-    // }
-  }
 
   // openDialog(): void {
   //   const dialogRef = this.dialog.open(AssignmentsComponent, {
@@ -142,10 +134,24 @@ export class SubmissionsComponent implements OnInit {
 })
 export class SetGradeDialogComponent {
 
-    constructor(private dialogRef: MatDialogRef<SubmissionsComponent>, @Inject(MAT_DIALOG_DATA) public data: any) { }
+    grade: number;
+
+    constructor(private dialogRef: MatDialogRef<SubmissionsComponent>,
+                private api: ApiService,
+                @Inject(MAT_DIALOG_DATA) public data: any) { }
 
     onNoClick(): void {
         this.dialogRef.close();
     }
+
+    /**
+     * Updates the grade attribute from the announcement object
+     * and updates the database, teacher only
+     */
+    setGrade(grade, id): void {
+        // this.api.setGrade(grade, id).subscribe( results => {
+        // }
+    }
+
 }
 

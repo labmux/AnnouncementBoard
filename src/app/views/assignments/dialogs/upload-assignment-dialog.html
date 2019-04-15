@@ -1,0 +1,17 @@
+<div mat-dialog-content>
+    <h2>Upload Assignment</h2>
+</div>
+<div>
+    <mat-form-field>
+        <input type="file" placeholder="Choose file...">
+    </mat-form-field>
+
+    <br>
+    <mat-form-field>
+        <textarea matInput placeholder="Assignment" [(ngModel)]="assignment" name="assignment"></textarea>
+    </mat-form-field>
+</div>
+<div mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">No Thanks</button>
+    <button mat-button (click)="addAssignment(name, assignment)">Ok</button>
+</div>

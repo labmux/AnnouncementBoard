@@ -26,7 +26,7 @@ export class ApiService {
   /**
    * Receives logged in session information
    */
-  getUserLoggedIn(): Observable<any> {
+  getUser(username: string, password): Observable<any> {
         return this.http.get(this.url + 'loggedIn');
   }
 
@@ -50,21 +50,21 @@ export class ApiService {
   /**
    * Updates database with new announcement updated by the teacher only
    */
-  editAnnouncement(announcement: string): void {
+  editAnnouncement(name: string, announcement: string): void {
 
   }
 
   /**
    * Adds a new announcement to the database, teacher only
    */
-  addAnnouncement(announcement: string): void {
+  addAnnouncement(name: string, announcement: string): void {
 
   }
 
   /**
    * Add a submission to the database
    */
-  addAssignment(): void {
+  addAssignment(name: string, assignment: string): void {
 
   }
 

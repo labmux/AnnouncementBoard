@@ -14,7 +14,7 @@ import { NavbarComponent } from './views/navbar/navbar.component';
 import { LoginPageComponent } from './views/login-page/login-page.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule} from '@angular/material/dialog';
-import { StudentSubmitionsDialogComponent } from './views/assignments/assignments.component';
+import {EditAssignmentsComponent, NewAssignmentDialogComponent, UploadAssignmentComponent} from './views/assignments/assignments.component';
 
 /*
     Services
@@ -61,9 +61,11 @@ import {AddAnnouncementsContentComponent} from './views/announcements/announceme
     LoginPageComponent,
     AssignmentsComponent,
     SetGradeDialogComponent,
-    StudentSubmitionsDialogComponent,
+    NewAssignmentDialogComponent,
     AddAnnouncementsContentComponent,
-    EditAnnouncementComponent
+    EditAnnouncementComponent,
+    EditAssignmentsComponent,
+    UploadAssignmentComponent
   ],
   imports: [
     BrowserModule,
@@ -91,8 +93,15 @@ import {AddAnnouncementsContentComponent} from './views/announcements/announceme
   ],
   providers: [ApiService, UserService, NavbarComponent],
   bootstrap: [AppComponent],
-  entryComponents: [AssignmentsComponent, AddAnnouncementsContentComponent,
-                    EditAnnouncementComponent, SetGradeDialogComponent, StudentSubmitionsDialogComponent]
+  entryComponents: [
+                    AssignmentsComponent,
+                    AddAnnouncementsContentComponent,
+                    EditAnnouncementComponent,
+                    EditAssignmentsComponent,
+                    SetGradeDialogComponent,
+                    NewAssignmentDialogComponent,
+                    UploadAssignmentComponent
+                    ]
 })
 export class AppModule { }
 

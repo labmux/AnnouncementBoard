@@ -56,7 +56,7 @@ export class SubmissionsComponent implements OnInit {
    * Gets the student submissions
    */
   getSubmissions(id): void {
-      this.api.getSubmissions(id).subscribe( (results: Submission) => {
+      this.api.getSubmissions(id).subscribe( (results: any) => {
 
         console.log(results.data);
         this.submissions = results.data;

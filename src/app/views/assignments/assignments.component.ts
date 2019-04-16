@@ -81,6 +81,15 @@ export class AssignmentsComponent implements OnInit {
     this.user = this.userService.getUser();
   }
 
+    getAssignments() {
+        this.api.getTAssignments().subscribe(
+            (res: any) => {
+
+                this.assignments = res.data;
+                // this.id = res.data.aid;
+            }
+        );
+    }
 
   openAddAssignment() {
       const dialogRef = this.dialog.open(NewAssignmentDialogComponent, {
@@ -194,15 +203,7 @@ export class UploadAssignmentComponent {
         this.api.editAnnouncement(name, assignment);
     }
 
-  getAssignments() {
-    this.api.getTAssignments().subscribe(
-        (res: any) => {
 
-           this.assignments = res.data;
-           // this.id = res.data.aid;
-        }
-    );
-  }
 /*
   addAssignment(): void {
     this.api.addAssignment();

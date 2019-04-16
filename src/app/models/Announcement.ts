@@ -2,7 +2,7 @@ import {Assignment} from './Assignment';
 
 export class Announcement {
   // Database params
-  aid: number;    //a
+  aid: number;
   csubject: number;
   abody: string;
   adate: string;

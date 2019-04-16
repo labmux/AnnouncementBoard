@@ -11,7 +11,7 @@ import {Assignment} from '../Assignment';
 export class ApiService {
 
   // TODO url of php api
-  url = 'http://localhost/projects/AnnouncementBoard/api';
+  url = 'http://localhost:8888/AnnouncementBoard/api';
 
   constructor(private http: HttpClient) { }
 

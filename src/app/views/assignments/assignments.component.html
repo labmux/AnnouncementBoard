@@ -2,44 +2,44 @@
 <!-- If student, display setSubmission button -->
 
 <div *ngIf="user == 1 || user == 2" fxLayout="row">
-    <div class="container">
-        <h1>Assignments</h1>
+  <div class="container">
+    <h1>Assignments</h1>
 
-        <mat-accordion>
-            <mat-expansion-panel *ngFor="let a of assignments">
-                <mat-expansion-panel-header>
-                    <mat-panel-title class="header-spacer">
-                        {{ a.teacher }}
-                    </mat-panel-title>
-                    <mat-panel-description class="header-spacer">
-                        {{ a.subject}}
-                    </mat-panel-description>
-                    <mat-panel-description class="header-spacer">
-                        Status: {{ a.submissionStatus}}
-                    </mat-panel-description>
-                </mat-expansion-panel-header>
+    <mat-accordion>
+      <mat-expansion-panel *ngFor="let a of assignments">
+        <mat-expansion-panel-header>
+          <mat-panel-title class="header-spacer">
+            {{ a.teacher }}
+          </mat-panel-title>
+          <mat-panel-description class="header-spacer">
+            {{ a.subject}}
+          </mat-panel-description>
+          <mat-panel-description class="header-spacer">
+            Status: {{ a.submissionStatus}}
+          </mat-panel-description>
+        </mat-expansion-panel-header>
 
-                <ng-container>
-                    <p>{{ a.body }}</p>
-                    <p><b>Grade Worth: {{ a.gradeWorth }}</b></p>
-                    <p><b>Due Date: {{ a.dueDate }}</b></p>
-                </ng-container>
+        <ng-container>
+          <p>{{ a.body }}</p>
+          <p><b>Grade Worth: {{ a.gradeWorth }}</b></p>
+          <p><b>Due Date: {{ a.dueDate }}</b></p>
+        </ng-container>
 
 
-                <mat-action-row>
-                    <button mat-raised-button color="warning">Download</button>
-                    <button *ngIf="user == 1" mat-raised-button color="accent">Edit</button>
-                    <button *ngIf="user == 2" mat-raised-button color="accent">Upload</button>
+        <mat-action-row>
+          <button mat-raised-button color="warning">Download</button>
+          <button *ngIf="user == 1" mat-raised-button color="accent">Edit</button>
+          <button *ngIf="user == 2" mat-raised-button color="accent">Upload</button>
 
-                </mat-action-row>
-            </mat-expansion-panel>
-        </mat-accordion>
-    </div>
+        </mat-action-row>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </div>
 
-    <button *ngIf="user == 1" mat-fab color="accent" id="addAssignment" (click)="addAssignment()">
-        <mat-icon><i class="material-icons">add</i></mat-icon>
-    </button>
+  <button *ngIf="user == 1" mat-fab color="accent" id="addAssignment" (click)="addAssignment()">
+    <mat-icon><i class="material-icons">add</i></mat-icon>
+  </button>
 </div>
 <div *ngIf="user == 0" style="margin: auto">
-    <h2>Please Sign In to view this page</h2>
+  <h2>Please Sign In to view this page</h2>
 </div>

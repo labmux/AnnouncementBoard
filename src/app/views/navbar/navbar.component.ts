@@ -9,7 +9,7 @@ export class NavbarComponent implements OnInit {
 
   constructor() { }
 
-    showFiller = false;
+  showFiller = false;
   ngOnInit() {
   }
 
